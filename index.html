@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        My first website
+    </title>
+    <!martian mono>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet">
+        <!Azeret Mono>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link
+                href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Martian+Mono:wght@100..800&display=swap"
+                rel="stylesheet">
+            <!Rubik Mono One>
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Martian+Mono:wght@100..800&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+                    rel="stylesheet">
+</head>
+
+<body>
+    <div class="button-container">
+        <button>Home</button>
+        <a href="#Works">
+            <button>Work</button></a>
+        <a href="https://docs.google.com/document/d/1mM6RverGBGrNrQJXbDwgVIbtu1XW8_Ne0P0yZhW-qvw/edit?usp=sharing"
+            target="_blank">
+            <button>Resume</button></a>
+        <a href="#contact-footer">
+            <button>Contact Me</button>
+        </a>
+    </div>
+    <div class="loGo">
+        <button class="btn"><img src="logo.png" alt="LOGO"></button>
+    </div>
+    <div class="intro">
+        <div class="text-container">
+            <h1>
+                Hi, I am <span class="Name">Unnati Maharjan</span><br>
+                <span class="Description">I create designs that embody brand essence through curated techniques with
+                    precision and creativity.</span>
+            </h1>
+        </div>
+        <img src="Untitled_Artwork (1).png" class="intro-img" alt="My Image">
+    </div>
+
+    <div class="BackgroundClass">
+        <h2>#Background </h2>
+        <div class="code-imitation">
+            <img src="Group 2.png" alt="code imitation" onclick="openForm('myForm'); toggleBlur(this);"
+                style="cursor: pointer;" style="max-width: 43rem;">
+        </div>
+
+        <!-- The form remains hidden initially -->
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+                <h1>Aspiring UX/UI Designer & Graphic Designer</h1>
+                <p>I’m a creative graphic designer with experience in both digital and print design, specializing in
+                    Adobe Creative Suite, web development, and brand identity. Currently studying at California Lutheran
+                    University, I excel in fast-paced environments, delivering high-quality work while collaborating
+                    effectively with teams and clients. My passion lies in creating visually impactful designs that tell
+                    a story and strengthen brand presence.</p>
+                <div class="skill">
+                    <ol>
+                        <li class="SkillShape">Adobe PhotoShop</li>
+                        <li class="SkillShape">Adobe Illustrator</li>
+                        <li class="SkillShape">Adobe After Effects</li>
+                        <li class="SkillShape">Adobe Animate</li>
+                        <li class="SkillShape">Adobe Indesign</li>
+                        <li class="SkillShape"> Python</li>
+                        <li class="SkillShape"> HTML</li>
+                        <li class="SkillShape">Java</li>
+                        <li class="SkillShape">CSS</liL>
+                        <li class="SkillShape">R</li>
+                    </ol>
+                </div>
+
+                <!-- Close button inside the form -->
+                <button type="button" class="btn cancel" onclick="closeForm('myForm'); removeBlur()">Close</button>
+            </form>
+        </div>
+    </div>
+
+    <h2 id="Works">#Works </h2>
+
+    <div class="workPortfolio">
+        <div class="Menu">
+            <div class="container01">
+                <div class="workImg"> <img src="computer-156951_1920.png" alt="dashain Menu" id="dashianMenu"
+                        style="max-width:  43rem; margin-bottom: 5rem;">
+                    <div class=" MenuText">
+                        <h3>Software Engineering </h3>
+                        <h4>Client Server Database Interactions </h4>
+                        <p> The project involves designing a generic client-server architecture using Java and MySQL for
+                            user authentication, data storage, and email generation. The server will manage business
+                            logic and database interactions, with a focus on secure login and dynamic email
+                            functionality. UML diagrams, including class and use case diagrams, will be used to document
+                            the system's structure and flow. This project was developed in collaboration with
+                            Justin Bouse, Tang Favish, and Micha Wisniewski.
+                        </p> 
+                        <a href=" https://github.com/1006udm/Client-Server-Database-Interactions" target="_blank">
+                            <button class="githubbutton">Github</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="dataAnalysis" style="cursor: pointer;  margin-bottom: 5rem;">
+                <div class="workImg">
+                    <div class="codimg">
+                        <!-- Make the image clickable by wrapping it with an anchor tag -->
+                        <ul>
+                            <img src="CODmain.png"
+                                alt="Graph showing the links between gender, region, and cause of death" id="CODImg">
+                    </div>
+                    <div class="dataText">
+                        <h3>Analyzing the Links Among Gender, Regional Factors and Cause of Death</h3>
+                        <p>This study utilized the R programming language to analyze the relationships among gender,
+                            regional residence (urban versus rural), and mortality rates attributed to the ten leading
+                            causes of death in the United States.</p>
+                        </a></ul>
+                    </div>
+                    <!-- Close button inside the form -->
+                    <a href="https://github.com/1006udm/Mortality-and-Reasons-" target="_blank">
+                        <button class="githubbutton">Github</button>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            // Function to open a specific form
+            function openForm(formId) {
+                // Show the form by setting its display style to block
+                document.getElementById(formId).style.display = "block";
+            }
+
+            function closeForm() {
+
+                document.getElementById("myForm").style.display = "none"; // Hide the form
+            }
+        </script>
+
+
+        <div class="Menu">
+
+            <div class="container01">
+                <div class="workImg"> <img src="DashainSAMPLE062.jpg" alt="dashain Menu" id="dashianMenu"
+                        style="max-width:  43rem;">
+                    <div class=" MenuText">
+                        <h3>Graphic Design</h3>
+                        <h4>Dashain Delicacies:</h4>
+                        <p> Created using Procreate, Adobe Illustrator, and InDesign, this menu design
+                            highlights the architectural style of the Kathmandu Valley while showcasing the rich
+                            culinary
+                            culture
+                            celebrated during the Hindu festival of Dashain.</p>
+                        <div class="initial-text" id="expandable-text"><a href="#additional-content">
+                            <button class="viewAll">View All Designs</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="additional-content" id="additional-content">
+        <h3> Additional Works</h3>
+        <div class="carousel">
+
+            <div class="image-container">
+                <img src="endracism.jpg" alt="End Racism Image">
+
+            </div>
+            <div class="image-container">
+                <img src="Frontposterfall2021.NP_page-0001.jpg" alt="Front Poster Fall 2021">
+
+            </div>
+            <div class="image-container">
+                <img src="malibu01.jpg" alt="Malibu Image">
+            </div>
+            <div class="image-container">
+                <img src="Dashainmain.jpg" alt="Malibu Image">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+
+
+
+    <footer id="contact-footer">
+        <nav><a href="contactME.html" target="_blank">
+                <p class="contactme"> //Contact<br> me </p>
+            </a></nav>
+        <div>
+            <ul>
+                <li><a href="mailto:unnatimaharjan06@gmail.com" class="email"> email</a></li>
+                <li><a class="linkedin" href="https://www.linkedin.com/in/unnati-maharjan-b170282bb/"
+                        target="_blank">linkedin</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
