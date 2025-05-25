@@ -43,3 +43,8 @@ document.querySelector('.viewAll').addEventListener('click', function() {
   var additionalContent = document.getElementById('additional-content');
   additionalContent.classList.toggle('show');
 });
+
+
+
+
+

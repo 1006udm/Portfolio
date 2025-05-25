@@ -39,19 +39,21 @@
     <div class="loGo">
         <button class="btn"><img src="logo.png" alt="LOGO"></button>
     </div>
-    <div class="intro">
-        <div class="text-container">
-            <h1>
-                Hi, I am <span class="Name">Unnati Maharjan</span><br>
-                <span class="Description">I create designs that embody brand essence through curated techniques with
-                    precision and creativity.</span>
-            </h1>
+    <div class="intro01">
+        <div class="intro">
+            <div class="text-container">
+                <h1>
+                    Hi, I am <span class="Name">Unnati Maharjan</span><br>
+                    <span class="Description">I create designs that embody brand essence through curated techniques with
+                        precision and creativity.</span>
+                </h1>
+            </div>
+            <img src="Untitled_Artwork (1).png" class="intro-img" alt="My Image">
         </div>
-        <img src="Untitled_Artwork (1).png" class="intro-img" alt="My Image">
     </div>
 
     <div class="BackgroundClass">
-        <h2>#Background </h2>
+        <h2 class="slide-in">#Background </h2>
         <div class="code-imitation">
             <img src="Group 2.png" alt="code imitation" onclick="openForm('myForm'); toggleBlur(this);"
                 style="cursor: pointer;" style="max-width: 43rem;">
@@ -66,7 +68,7 @@
                     University, I excel in fast-paced environments, delivering high-quality work while collaborating
                     effectively with teams and clients. My passion lies in creating visually impactful designs that tell
                     a story and strengthen brand presence.</p>
-                
+
 
                 <!-- Close button inside the form -->
                 <button type="button" class="btn cancel" onclick="closeForm('myForm'); removeBlur()">Close</button>
@@ -74,9 +76,109 @@
         </div>
     </div>
 
-    <h2 id="Works">#Works </h2>
+    <h2 id="Works" class="slide-in">#Works </h2>
 
     <div class="workPortfolio">
+
+        <div class="Menu">
+            <div class="container01">
+                <div class="workImg"> <img src="logo.JPG" alt="dashain Menu" id="dashianMenu"
+                        style="max-width:  43rem; margin-bottom: 5rem;">
+                    <div class=" MenuText">
+                        <h3>Brand Design </h3>
+                        <h4>Guliyo: sweetness of Nepal </h4>
+                        <p> This luxury sweet brand was inspired by my childhood admiration for beauty and tradition.
+                            Combining cultural illustration, bold typography, and vivid color, Guliyo reflects the
+                            opulence of South Asian heritage.
+                        </p>
+                        <a href=" https://github.com/1006udm/Client-Server-Database-Interactions" target="_blank">
+                            <button class="githubbutton">Website</button>
+                        </a>
+                        <!-- View Designs Button -->
+                        <button class="viewAll" data-target="guliyo-designs">View All Designs</button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+       <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const button = document.querySelector(".viewAll[data-target='guliyo-designs']");
+        const section = document.getElementById("guliyo-designs");
+
+        button.addEventListener("click", function () {
+            if (section.style.display === "none" || section.style.display === "") {
+                section.style.display = "block";
+                section.scrollIntoView({ behavior: "smooth" });
+            } else {
+                section.style.display = "none";
+            }
+        });
+    });
+</script>
+
+
+
+
+        <div class="additional-guliyo" id="guliyo-designs">
+            <h3>Guliyo Designs</h3>
+            <div class="carousel">
+                <div class="image-container">
+                    <img src="lassi_art.JPG" alt="Guliyo Box Mockup">
+                </div>
+                <div class="image-container">
+                    <img src="lassi_mockup.JPG" alt="Guliyo Logo Sketch">
+                </div>
+                <div class="image-container">
+                    <img src="Jaad_art.JPG" alt="Color Palette">
+                </div>
+                <div class="image-container">
+                    <img src="Jaad_mockup.JPG" alt="Guliyo Typeface Pairing">
+                </div>
+                <div class="image-container">
+                    <img src="jhola_mockup.JPG" alt="Guliyo Box Mockup">
+                </div>
+                <div class="image-container">
+                    <img src="poster.jpeg" alt="Guliyo Logo Sketch">
+                </div>
+                <div class="image-container">
+                    <img src="poster_art.jpeg" alt="Color Palette">
+                </div>
+                <div class="image-container">
+                    <img src="poster2.JPG" alt="Guliyo Typeface Pairing">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="dataAnalysis" style="cursor: pointer;  margin-bottom: 5rem;">
+                <div class="workImg">
+                    <div class="codimg">
+                        <!-- Make the image clickable by wrapping it with an anchor tag -->
+                        <ul>
+                            <img src="art_ai.jpg"
+                                alt="Graph showing the links between gender, region, and cause of death" id="CODImg">
+                    </div>
+                    <div class="dataText">
+                        <h3>Machine Learning</h3>
+                        <h4>AI in Art History</h4>
+                        <p>This project explores the application of Artificial Intelligence (AI) and how can be applied in the feild of art history by
+                            analyzing color palettes and stylistic features to predict the period, style, and
+                            geographical location of artworks. AI will uncover correlations between visual traits and
+                            historical contexts, advancing the understanding of art evolution.</p>
+                        </a></ul>
+                    </div>
+                    <!-- Close button inside the form -->
+                    <a href="https://github.com/1006udm/Mortality-and-Reasons-" target="_blank">
+                        <button class="githubbutton">Github</button>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+
         <div class="Menu">
             <div class="container01">
                 <div class="workImg"> <img src="computer-156951_1920.png" alt="dashain Menu" id="dashianMenu"
@@ -90,9 +192,12 @@
                             functionality. UML diagrams, including class and use case diagrams, will be used to document
                             the system's structure and flow. This project was developed in collaboration with
                             Justin Bouse, Tang Favish, and Micha Wisniewski.
-                        </p> 
+                        </p>
                         <a href=" https://github.com/1006udm/Client-Server-Database-Interactions" target="_blank">
-                            <button class="githubbutton">Github</button>
+                            <button class="githubbutton">View Website</button>
+                        </a>
+                        <a>
+                            <button class=" view_all_designs"> View Designs</button>
                         </a>
                     </div>
                 </div>
@@ -109,7 +214,8 @@
                                 alt="Graph showing the links between gender, region, and cause of death" id="CODImg">
                     </div>
                     <div class="dataText">
-                        <h3>Analyzing the Links Among Gender, Regional Factors and Cause of Death</h3>
+                        <h3> Data Analysis</h3>
+                        <h4>Analyzing the Links Among Gender, Regional Factors and Cause of Death</h4>
                         <p>This study utilized the R programming language to analyze the relationships among gender,
                             regional residence (urban versus rural), and mortality rates attributed to the ten leading
                             causes of death in the United States.</p>
@@ -154,7 +260,7 @@
                             culture
                             celebrated during the Hindu festival of Dashain.</p>
                         <div class="initial-text" id="expandable-text"><a href="#additional-content">
-                            <button class="viewAll">View All Designs</button></a>
+                                <button class="viewAll">View All Designs</button></a>
                         </div>
                     </div>
                 </div>
@@ -191,8 +297,8 @@
 
     <footer id="contact-footer">
         <nav>
-                <p class="contactme"> //Contact<br> me </p>
-            </nav>
+            <p class="contactme"> //Contact<br> me </p>
+        </nav>
         <div>
             <ul>
                 <li><a href="mailto:unnatimaharjan06@gmail.com" class="email"> email</a></li>
@@ -202,5 +308,64 @@
         </div>
     </footer>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const h2Elements = document.querySelectorAll("h2.slide-in");
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target); // Animate only once
+                }
+            });
+        });
+
+        h2Elements.forEach(h2 => observer.observe(h2));
+    });
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            carousel.classList.add('active');
+            startX = e.pageX - carousel.offsetLeft;
+            scrollLeft = carousel.scrollLeft;
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            isDown = false;
+            carousel.classList.remove('active');
+        });
+
+        carousel.addEventListener('mouseup', () => {
+            isDown = false;
+            carousel.classList.remove('active');
+        });
+
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 2; // Adjust scroll speed
+            carousel.scrollLeft = scrollLeft - walk;
+        });
+    });
+    let startTouchX, startTouchScrollLeft;
+
+    carousel.addEventListener('touchstart', (e) => {
+        startTouchX = e.touches[0].pageX;
+        startTouchScrollLeft = carousel.scrollLeft;
+    }, { passive: true });
+
+    carousel.addEventListener('touchmove', (e) => {
+        const x = e.touches[0].pageX;
+        const walk = (x - startTouchX) * 1.5; // Adjust scroll speed
+        carousel.scrollLeft = startTouchScrollLeft - walk;
+    }, { passive: true });
+
+</script>
 
 </html>
