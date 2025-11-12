@@ -68,6 +68,8 @@
     </div>
 
     <!-- Works Section -->
+    <section id="Works">
+        <h2 class="slide-in">#Works</h2>
 
         <!-- Marginalia -->
         <div class="workPortfolio">
@@ -224,6 +226,263 @@
         </div>
     </footer>
 
+    <style>
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            /* Navigation buttons */
+            .button-container {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1rem;
+                width: 100%;
+            }
+
+            .button-container button,
+            .button-container a {
+                width: 100%;
+            }
+
+            .button-container a button {
+                width: 100%;
+            }
+
+            /* Logo */
+            .loGo {
+                padding: 1rem;
+            }
+
+            .loGo img {
+                max-width: 80px;
+            }
+
+            /* Intro section */
+            .intro01 {
+                padding: 1rem;
+            }
+
+            .intro {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .text-container h1 {
+                font-size: 1.5rem;
+                line-height: 1.4;
+            }
+
+            .Name {
+                font-size: 1.8rem;
+            }
+
+            .Description {
+                font-size: 1rem;
+                display: block;
+                margin-top: 1rem;
+            }
+
+            .intro-img {
+                max-width: 100%;
+                height: auto;
+                margin-top: 2rem;
+            }
+
+            /* Background section */
+            .BackgroundClass {
+                padding: 1rem;
+            }
+
+            .BackgroundClass h2 {
+                font-size: 1.5rem;
+            }
+
+            .code-imitation img {
+                max-width: 100% !important;
+                height: auto;
+            }
+
+            /* Form popup */
+            .form-popup {
+                width: 95%;
+                margin: 0 auto;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+            }
+
+            .form-container h1 {
+                font-size: 1.3rem;
+            }
+
+            .form-container p {
+                font-size: 0.9rem;
+            }
+
+            /* Works section */
+            #Works h2 {
+                font-size: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .workPortfolio {
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 0;
+            }
+
+            .dataAnalysis {
+                margin-bottom: 3rem !important;
+            }
+
+            .workImg {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .workImg img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .dataText {
+                padding: 0;
+            }
+
+            .dataText h3 {
+                font-size: 1.5rem;
+            }
+
+            .dataText h4 {
+                font-size: 1.1rem;
+            }
+
+            .dataText p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            .githubbutton,
+            .view_all_designs {
+                width: 100%;
+                margin: 0.5rem 0;
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            /* Additional content sections */
+            .additional-guliyo,
+            .additional-content {
+                padding: 1rem;
+            }
+
+            .additional-guliyo h3,
+            .additional-content h3 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+
+            /* Carousel */
+            .carousel {
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+
+            .image-container {
+                min-width: 250px;
+            }
+
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Footer */
+            #contact-footer {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1rem;
+                gap: 1.5rem;
+            }
+
+            .contactme {
+                font-size: 1.5rem;
+            }
+
+            #contact-footer ul {
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            #contact-footer li {
+                list-style: none;
+            }
+
+            #contact-footer a {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Extra small phones */
+        @media (max-width: 480px) {
+            .text-container h1 {
+                font-size: 1.2rem;
+            }
+
+            .Name {
+                font-size: 1.5rem;
+            }
+
+            .Description {
+                font-size: 0.9rem;
+            }
+
+            .dataText h3 {
+                font-size: 1.3rem;
+            }
+
+            .dataText h4 {
+                font-size: 1rem;
+            }
+
+            .dataText p {
+                font-size: 0.85rem;
+            }
+
+            .image-container {
+                min-width: 200px;
+            }
+
+            .button-container button,
+            .githubbutton,
+            .view_all_designs {
+                font-size: 0.85rem;
+                padding: 0.7rem;
+            }
+        }
+
+        /* Landscape mode for small devices */
+        @media (max-width: 896px) and (orientation: landscape) {
+            .intro {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .intro-img {
+                max-width: 40%;
+                margin-top: 0;
+                margin-left: 2rem;
+            }
+        }
+    </style>
+
     <script>
         // Slide-in animation for h2 elements
         document.addEventListener("DOMContentLoaded", () => {
@@ -326,4 +585,3 @@
 </body>
 
 </html>
-
