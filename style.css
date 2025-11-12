@@ -797,8 +797,7 @@ html {
 .intro {
     display: flex; /* Use flexbox to align text and image side by side */
     align-items: center; /* Vertically center content */
-    justify-content: flex-start; /* Align items to the left */
-    height: 100vh; /* Full viewport height */
+    justify-content: flex-start; /* Align items to the left */\
     padding-left: 50px; /* Reduce padding to avoid unnecessary space */
     padding-right: 50px; /* Reduce padding to avoid unnecessary space */
     position: relative; /* Required for positioning the text container absolutely */
@@ -896,7 +895,6 @@ button:hover {
     display: flex;
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
-    height: 100vh; /* Full viewport height for vertical centering */
 }
 
 .code-imitation img {
@@ -1374,5 +1372,6 @@ margin-bottom:5rem;
     font-size: 1rem;
     padding-left: 0;
 }
+
 
 
