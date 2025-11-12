@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,31 +7,435 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unnati Diya Maharjan</title>
     
-    <!-- Martian Mono -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet">
-    
-    <!-- Azeret Mono -->
-    <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet">
-    
-    <!-- Rubik Mono One -->
-    <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Martian+Mono:wght@100..800&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
     <style>
-        /* Mobile Responsive Styles */
+        body {
+            background-color: #fffefa;
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        .button-container {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        button {
+            background-color: #fffefa;
+            color: #6F96D1;
+            font-family: "Azeret Mono";
+            border: none;
+            padding: 10px 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #6F96D1;
+            color: #F7f2ef;
+        }
+
+        /* Logo */
+        .loGo {
+            top: 1rem;
+            left: 1rem;
+            padding: 10px;
+            display: flex;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #D9C6B5;
+        }
+
+        /* Intro Section */
+        .intro01 {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .intro {
+            display: flex;
+            height: 80vh;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        .text-container {
+            position: absolute;
+            top: 50%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .intro-img {
+            width: 60%;
+            height: auto;
+            position: relative;
+            bottom: -1rem;
+            z-index: 1;
+            left: 45rem;
+        }
+
+        @keyframes giggle {
+            0%, 100% { transform: rotate(0deg); }
+            10% { transform: rotate(2deg); }
+            20% { transform: rotate(-2deg); }
+            40% { transform: rotate(-1.5deg); }
+            50% { transform: rotate(1deg); }
+            70% { transform: rotate(0.5deg); }
+            80% { transform: rotate(-0.5deg); }
+            90% { transform: rotate(0.2deg); }
+        }
+
+        .intro-img:hover {
+            animation: giggle 0.4s ease-in-out;
+        }
+
+        /* Typography */
+        .Name {
+            font-family: "Rubik Mono One";
+            font-size: 120px;
+            color: #344eab;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .Description {
+            font-family: "Azeret Mono";
+            font-size: 15px;
+            font-weight: normal;
+            color: #091D58;
+            letter-spacing: -0.4px;
+        }
+
+        h1 {
+            font-family: "Azeret Mono";
+            font-size: 32px;
+            color: #344EAB;
+        }
+
+        h2 {
+            font-size: 64px;
+            color: #122773;
+            font-family: "Martian Mono";
+            letter-spacing: 3px;
+            padding: 50px;
+            transition: filter 0.3s ease, color 0.3s ease;
+        }
+
+        h2.slide-in {
+            opacity: 0;
+            transform: translateX(100%);
+            transition: transform 3s ease-out, opacity 0.8s ease-out;
+        }
+
+        h2.slide-in.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        h3 {
+            font-family: "Azeret Mono";
+            font-size: 40px;
+            color: #3149a2;
+            margin-block-start: 0.5em;
+            margin-block-end: 0.5em;
+        }
+
+        h4 {
+            font-family: "Azeret Mono";
+            font-size: 32px;
+            color: #091e5d;
+            margin-block-start: 0.5em;
+            margin-block-end: 0.5em;
+        }
+
+        p {
+            font-family: "Azeret Mono";
+            font-size: 14px;
+            color: #000000;
+            text-align: justify;
+            word-wrap: break-word;
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Background Section */
+        .BackgroundClass {
+            margin-bottom: 3rem;
+        }
+
+        .code-imitation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .code-imitation img {
+            transform: scale(1.1);
+            transition: filter 0.3s ease;
+        }
+
+        .code-imitation img.blurred {
+            filter: blur(1rem);
+        }
+
+        /* Form Popup */
+        .form-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            height: auto;
+            max-height: 80vh;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            z-index: 9999;
+            overflow: auto;
+            box-sizing: border-box;
+        }
+
+        .form-container {
+            max-width: 100%;
+            padding: 10px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 15px;
+        }
+
+        .btn.cancel {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn.cancel:hover {
+            background-color: darkred;
+        }
+
+        /* Work Portfolio */
+        .workPortfolio {
+            width: 80%;
+            margin: 0 auto 5rem auto;
+        }
+
+        .dataAnalysis {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .dataAnalysis img {
+            gap: 2rem;
+            padding: 2rem;
+            float: right;
+            max-width: 45%;
+            width: 25rem;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .codimg ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .codimg img:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .Menu {
+            display: flex;
+            gap: 2rem;
+            width: 80%;
+            margin: 0 auto 5rem auto;
+        }
+
+        .Menu img {
+            padding-right: 2rem;
+            max-width: 45%;
+            width: 25rem;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            float: left;
+        }
+
+        .Menu img:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .githubbutton,
+        .view_all_designs,
+        .viewAll {
+            font-size: 1rem;
+            padding-left: 0;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Carousel */
+        .additional-guliyo,
+        .additional-content {
+            display: none;
+            margin-top: 5rem;
+            padding: 5rem;
+            padding-top: 1rem;
+            text-align: right;
+            background-image: linear-gradient(45deg, #FFF9EF, #fffefa);
+        }
+
+        .carousel {
+            display: grid;
+            grid-auto-flow: column;
+            scroll-behavior: auto;
+            gap: 1.2rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+            overscroll-behavior-x: contain;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            cursor: grab;
+        }
+
+        .carousel:active {
+            cursor: grabbing;
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            scroll-snap-align: start;
+        }
+
+        .image-container img {
+            display: block;
+            width: auto;
+            height: 25rem;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #273A80;
+            color: #FFF9EF;
+            display: flex;
+            align-items: center;
+            width: 100vw;
+            padding: 2rem 0;
+        }
+
+        .contactme {
+            margin-right: 1rem;
+            width: 831px;
+            color: #DBDBDB;
+            text-align: right;
+            font-family: "Azeret Mono";
+            font-size: 96px;
+            font-style: italic;
+            font-weight: 500;
+            letter-spacing: 9.6px;
+            margin-bottom: 6rem;
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+
+        .email,
+        .linkedin {
+            color: #EEF1F6;
+            text-align: left;
+            font-family: "Martian Mono";
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 35px;
+            letter-spacing: 0.96px;
+            display: block;
+        }
+
+        .email {
+            margin-bottom: 6rem;
+        }
+
+        /* MOBILE RESPONSIVE STYLES */
         @media (max-width: 768px) {
             body {
-                overflow-x: hidden;
+                padding: 0 2rem;
             }
 
-            /* Navigation buttons */
+            /* Navigation */
             .button-container {
+                position: relative;
                 flex-direction: column;
                 gap: 0.5rem;
                 padding: 1rem;
                 width: 100%;
+                top: 0;
+                right: 0;
             }
 
             .button-container button,
@@ -51,14 +456,23 @@
                 max-width: 80px;
             }
 
-            /* Intro section */
+            /* Intro */
             .intro01 {
-                padding: 1rem;
+                padding: 1rem 0;
             }
 
             .intro {
                 flex-direction: column;
                 text-align: center;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .text-container {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
             }
 
             .text-container h1 {
@@ -67,7 +481,7 @@
             }
 
             .Name {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .Description {
@@ -77,33 +491,39 @@
             }
 
             .intro-img {
-                max-width: 100%;
-                height: auto;
+                position: relative;
+                width: 100%;
+                max-width: 300px;
+                left: 0;
                 margin-top: 2rem;
             }
 
-            /* Background section */
+            /* Background */
             .BackgroundClass {
-                padding: 1rem;
+                padding: 1rem 0;
             }
 
             .BackgroundClass h2 {
-                font-size: 1.5rem;
+                font-size: 2rem;
+                padding: 1rem;
+            }
+
+            .code-imitation {
+                height: auto;
+                padding: 2rem 0;
             }
 
             .code-imitation img {
                 max-width: 100% !important;
                 height: auto;
+                transform: scale(1);
             }
 
-            /* Form popup */
+            /* Form */
             .form-popup {
                 width: 95%;
-                margin: 0 auto;
-            }
-
-            .form-container {
-                padding: 1.5rem;
+                max-width: 500px;
+                padding: 15px;
             }
 
             .form-container h1 {
@@ -114,64 +534,69 @@
                 font-size: 0.9rem;
             }
 
-            /* Works section */
-            #Works {
+            /* Typography */
+            h2 {
+                font-size: 2rem;
+                padding: 1rem;
+            }
+
+            h3 {
                 font-size: 1.5rem;
-                padding: 0 1rem;
+            }
+
+            h4 {
+                font-size: 1.2rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            /* Works */
+            #Works {
+                font-size: 2rem;
+                padding: 1rem;
             }
 
             .workPortfolio,
             .Menu {
-                padding: 0 1rem;
-            }
-
-            .container,
-            .container01 {
+                width: 100%;
                 padding: 0;
             }
 
             .dataAnalysis {
-                margin-bottom: 3rem !important;
-            }
-
-            .workImg {
                 flex-direction: column;
-                gap: 1.5rem;
+                gap: 1rem;
+                margin-bottom: 3rem;
             }
 
-            .workImg img {
+            .dataAnalysis img {
+                float: none;
                 max-width: 100% !important;
-                height: auto;
+                width: 100%;
+                padding: 0;
             }
 
             .codimg,
             .dataText,
             .MenuText {
-                padding: 0;
                 width: 100%;
-            }
-
-            .codimg ul {
                 padding: 0;
-                margin: 0;
             }
 
-            .dataText h3,
-            .MenuText h3 {
-                font-size: 1.5rem;
+            .Menu {
+                flex-direction: column;
             }
 
-            .dataText h4,
-            .MenuText h4 {
-                font-size: 1.1rem;
+            .Menu img {
+                float: none;
+                max-width: 100% !important;
+                width: 100%;
+                padding: 0;
+                margin-bottom: 1rem;
             }
 
-            .dataText p,
-            .MenuText p {
-                font-size: 0.9rem;
-                line-height: 1.6;
-            }
-
+            /* Buttons */
             .githubbutton,
             .view_all_designs,
             .viewAll {
@@ -181,46 +606,34 @@
                 font-size: 0.9rem;
             }
 
-            #dashianMenu {
-                max-width: 100% !important;
-                margin-bottom: 2rem !important;
-            }
-
-            /* Additional content sections */
+            /* Carousel */
             .additional-guliyo,
             .additional-content {
                 padding: 1rem;
+                margin-top: 2rem;
             }
 
             .additional-guliyo h3,
             .additional-content h3 {
                 font-size: 1.3rem;
-                margin-bottom: 1rem;
             }
 
-            /* Carousel */
             .carousel {
-                gap: 1rem;
+                gap: 0.8rem;
                 padding: 1rem 0;
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
             }
 
             .image-container {
                 min-width: 250px;
-                scroll-snap-align: start;
-                flex-shrink: 0;
+                padding: 0.5rem;
             }
 
             .image-container img {
-                max-width: 100%;
-                height: auto;
-                display: block;
+                height: 20rem;
             }
 
             /* Footer */
-            #contact-footer {
+            footer {
                 flex-direction: column;
                 text-align: center;
                 padding: 2rem 1rem;
@@ -228,29 +641,32 @@
             }
 
             .contactme {
-                font-size: 1.5rem;
+                font-size: 2rem;
+                width: auto;
+                margin-bottom: 2rem;
+                letter-spacing: 2px;
+                text-align: center;
             }
 
-            #contact-footer ul {
+            footer ul {
                 padding: 0;
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
             }
 
-            #contact-footer li {
-                list-style: none;
-            }
-
-            #contact-footer a {
-                font-size: 1.1rem;
+            .email,
+            .linkedin {
+                font-size: 1.5rem;
+                text-align: center;
+                margin-bottom: 1rem;
             }
         }
 
         /* Extra small phones */
         @media (max-width: 480px) {
-            .text-container h1 {
-                font-size: 1.2rem;
+            body {
+                padding: 0 1rem;
             }
 
             .Name {
@@ -261,45 +677,33 @@
                 font-size: 0.9rem;
             }
 
-            .dataText h3,
-            .MenuText h3 {
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
                 font-size: 1.3rem;
             }
 
-            .dataText h4,
-            .MenuText h4 {
+            h4 {
                 font-size: 1rem;
-            }
-
-            .dataText p,
-            .MenuText p {
-                font-size: 0.85rem;
             }
 
             .image-container {
                 min-width: 200px;
             }
 
-            .button-container button,
-            .githubbutton,
-            .view_all_designs,
-            .viewAll {
-                font-size: 0.85rem;
-                padding: 0.7rem;
-            }
-        }
-
-        /* Landscape mode for small devices */
-        @media (max-width: 896px) and (orientation: landscape) {
-            .intro {
-                flex-direction: row;
-                align-items: center;
+            .image-container img {
+                height: 15rem;
             }
 
-            .intro-img {
-                max-width: 40%;
-                margin-top: 0;
-                margin-left: 2rem;
+            .contactme {
+                font-size: 1.5rem;
+            }
+
+            .email,
+            .linkedin {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -308,15 +712,11 @@
 <body>
     <div class="button-container">
         <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Home</button>
-        <a href="#Works">
-            <button>Work</button>
-        </a>
+        <a href="#Works"><button>Work</button></a>
         <a href="https://drive.google.com/file/d/12ilwB49QqJNDkbqbePYMZRTVrbVMQuqd/view?usp=sharing" target="_blank">
             <button>Resume</button>
         </a>
-        <a href="#contact-footer">
-            <button>Contact Me</button>
-        </a>
+        <a href="#contact-footer"><button>Contact Me</button></a>
     </div>
 
     <div class="loGo">
@@ -341,13 +741,10 @@
             <img src="Group 2.png" alt="code imitation" onclick="openForm('myForm'); toggleBlur(this);" style="cursor: pointer; max-width: 43rem;">
         </div>
 
-        <!-- The form remains hidden initially -->
         <div class="form-popup" id="myForm">
-            <form action="/action_page.php" class="form-container">
+            <form class="form-container">
                 <h1>Aspiring UX/UI Designer & Graphic Designer</h1>
                 <p>I'm a creative graphic designer with experience in both digital and print design, specializing in Adobe Creative Suite, web development, and brand identity. Currently studying at California Lutheran University, I excel in fast-paced environments, delivering high-quality work while collaborating effectively with teams and clients. My passion lies in creating visually impactful designs that tell a story and strengthen brand presence.</p>
-
-                <!-- Close button inside the form -->
                 <button type="button" class="btn cancel" onclick="closeForm('myForm'); removeBlur()">Close</button>
             </form>
         </div>
@@ -358,7 +755,7 @@
     <!-- Marginalia -->
     <div class="workPortfolio">
         <div class="container">
-            <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
+            <div class="dataAnalysis">
                 <div class="workImg">
                     <div class="codimg">
                         <ul>
@@ -368,7 +765,7 @@
                     <div class="dataText">
                         <h3>Marginalia</h3>
                         <h4>Writing from the margins</h4>
-                        <p>Marginalia is a platform that helps readers turn their notes and highlights from books into organized, shareable insights. It combines the depth of personal note-taking with the reach of public publishing. Users can capture and summarize ideas, keep them private as part of their own learning archive, or share them as thoughtful reflections for others to explore. With AI-powered summaries, customizable "bookshelves," and interactive margin discussions, Marginalia transforms reading into a connected, creative experience — where private understanding becomes collective knowledge.</p>
+                        <p>Marginalia is a platform that helps readers turn their notes and highlights from books into organized, shareable insights. It combines the depth of personal note-taking with the reach of public publishing. Users can capture and summarize ideas, keep them private as part of their own learning archive, or share them as thoughtful reflections for others to explore.</p>
                         <a href="https://www.figma.com/proto/avLz9qNunJqS8PnSqvje5c/Marginalia?node-id=1206-2234&p=f&t=6OsDQa8x9i7rXJf7-1&scaling=scale-down&content-scaling=fixed&page-id=601%3A10&starting-point-node-id=605%3A9" target="_blank">
                             <button class="githubbutton">View Website</button>
                         </a>
@@ -385,7 +782,7 @@
     <div class="Menu">
         <div class="container01">
             <div class="workImg">
-                <img src="logo.JPG" alt="dashain Menu" id="dashianMenu" style="max-width: 43rem; margin-bottom: 5rem;">
+                <img src="logo.JPG" alt="Guliyo Brand" id="dashianMenu">
                 <div class="MenuText">
                     <h3>Brand Design</h3>
                     <h4>Guliyo: sweetness of Nepal</h4>
@@ -400,24 +797,24 @@
     </div>
 
     <!-- Guliyo Designs -->
-    <div class="additional-guliyo" id="guliyo-designs" style="display: none;">
+    <div class="additional-guliyo" id="guliyo-designs">
         <h3>Guliyo Designs</h3>
         <div class="carousel">
             <div class="image-container"><img src="lassi_art.JPG" alt="Guliyo artwork - Lassi"></div>
-            <div class="image-container"><img src="lassi_mockup.JPG" alt="Lassi mockup packaging"></div>
-            <div class="image-container"><img src="Jaad_art.JPG" alt="Jaad design concept"></div>
-            <div class="image-container"><img src="Jaad_mockup.JPG" alt="Jaad mockup packaging"></div>
-            <div class="image-container"><img src="jhola_mockup.JPG" alt="Guliyo bag mockup"></div>
-            <div class="image-container"><img src="poster.jpeg" alt="Guliyo promotional poster"></div>
-            <div class="image-container"><img src="poster_art.jpeg" alt="Poster concept art"></div>
-            <div class="image-container"><img src="poster2.JPG" alt="Poster version 2"></div>
+            <div class="image-container"><img src="lassi_mockup.JPG" alt="Lassi mockup"></div>
+            <div class="image-container"><img src="Jaad_art.JPG" alt="Jaad design"></div>
+            <div class="image-container"><img src="Jaad_mockup.JPG" alt="Jaad mockup"></div>
+            <div class="image-container"><img src="jhola_mockup.JPG" alt="Bag mockup"></div>
+            <div class="image-container"><img src="poster.jpeg" alt="Poster"></div>
+            <div class="image-container"><img src="poster_art.jpeg" alt="Poster art"></div>
+            <div class="image-container"><img src="poster2.JPG" alt="Poster 2"></div>
         </div>
     </div>
 
     <!-- AI in Art History -->
     <div class="workPortfolio">
         <div class="container">
-            <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
+            <div class="dataAnalysis">
                 <div class="workImg">
                     <div class="codimg">
                         <ul>
@@ -427,7 +824,7 @@
                     <div class="dataText">
                         <h3>Machine Learning</h3>
                         <h4>AI in Art History</h4>
-                        <p>This project explores the application of Artificial Intelligence (AI) and how can be applied in the field of art history by analyzing color palettes and stylistic features to predict the period, style, and geographical location of artworks. AI will uncover correlations between visual traits and historical contexts, advancing the understanding of art evolution.</p>
+                        <p>This project explores the application of Artificial Intelligence (AI) and how it can be applied in the field of art history by analyzing color palettes and stylistic features to predict the period, style, and geographical location of artworks.</p>
                         <a href="https://github.com/1006udm/Mortality-and-Reasons-" target="_blank">
                             <button class="githubbutton">Github</button>
                         </a>
@@ -441,15 +838,14 @@
     <div class="Menu">
         <div class="container01">
             <div class="workImg">
-                <img src="computer-156951_1920.png" alt="Client Server Database" id="dashianMenu2" style="max-width: 43rem; margin-bottom: 5rem;">
+                <img src="computer-156951_1920.png" alt="Client Server" id="dashianMenu2">
                 <div class="MenuText">
                     <h3>Software Engineering</h3>
                     <h4>Client Server Database Interactions</h4>
-                    <p>The project involves designing a generic client-server architecture using Java and MySQL for user authentication, data storage, and email generation. The server will manage business logic and database interactions, with a focus on secure login and dynamic email functionality. UML diagrams, including class and use case diagrams, will be used to document the system's structure and flow. This project was developed in collaboration with Justin Bouse, Tang Favish, and Micha Wisniewski.</p>
+                    <p>The project involves designing a generic client-server architecture using Java and MySQL for user authentication, data storage, and email generation. This project was developed in collaboration with Justin Bouse, Tang Favish, and Micha Wisniewski.</p>
                     <a href="https://github.com/1006udm/Client-Server-Database-Interactions" target="_blank">
                         <button class="githubbutton">View Website</button>
                     </a>
-                    <button class="view_all_designs">View Designs</button>
                 </div>
             </div>
         </div>
@@ -458,11 +854,11 @@
     <!-- Data Analysis -->
     <div class="workPortfolio">
         <div class="container">
-            <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
+            <div class="dataAnalysis">
                 <div class="workImg">
                     <div class="codimg">
                         <ul>
-                            <img src="CODmain.png" alt="Data Analysis Visualization" id="CODImg3">
+                            <img src="CODmain.png" alt="Data Analysis" id="CODImg3">
                         </ul>
                     </div>
                     <div class="dataText">
@@ -482,16 +878,14 @@
     <div class="Menu">
         <div class="container01">
             <div class="workImg">
-                <img src="DashainSAMPLE062.jpg" alt="Dashain Menu" id="dashianMenu3" style="max-width: 43rem;">
+                <img src="DashainSAMPLE062.jpg" alt="Dashain Menu" id="dashianMenu3">
                 <div class="MenuText">
                     <h3>Graphic Design</h3>
                     <h4>Dashain Delicacies</h4>
                     <p>Created using Procreate, Adobe Illustrator, and InDesign, this menu design highlights the architectural style of the Kathmandu Valley while showcasing the rich culinary culture celebrated during the Hindu festival of Dashain.</p>
-                    <div class="initial-text" id="expandable-text">
-                        <a href="#additional-content">
-                            <button class="viewAll">View All Designs</button>
-                        </a>
-                    </div>
+                    <a href="#additional-content">
+                        <button class="viewAll">View All Designs</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -501,9 +895,9 @@
     <div class="additional-content" id="additional-content">
         <h3>Additional Works</h3>
         <div class="carousel">
-            <div class="image-container"><img src="endracism.jpg" alt="End Racism Image"></div>
+            <div class="image-container"><img src="endracism.jpg" alt="End Racism"></div>
             <div class="image-container"><img src="Frontposterfall2021.NP_page-0001.jpg" alt="Fall 2021 Poster"></div>
-            <div class="image-container"><img src="malibu01.jpg" alt="Malibu Image"></div>
+            <div class="image-container"><img src="malibu01.jpg" alt="Malibu"></div>
             <div class="image-container"><img src="Dashainmain.jpg" alt="Dashain Main"></div>
         </div>
     </div>
@@ -520,13 +914,10 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-
     <script>
-        // Slide-in animation for h2 elements
+        // Slide-in animation
         document.addEventListener("DOMContentLoaded", () => {
             const h2Elements = document.querySelectorAll("h2.slide-in");
-
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -535,13 +926,11 @@
                     }
                 });
             });
-
             h2Elements.forEach(h2 => observer.observe(h2));
 
-            // Toggle Guliyo designs
+            // Guliyo toggle
             const guliyoButton = document.querySelector(".viewAll[data-target='guliyo-designs']");
             const guliyoSection = document.getElementById("guliyo-designs");
-
             if (guliyoButton && guliyoSection) {
                 guliyoButton.addEventListener("click", function () {
                     if (guliyoSection.style.display === "none" || guliyoSection.style.display === "") {
@@ -556,36 +945,15 @@
             }
         });
 
-        // Carousel functionality
+        // Carousel drag
         document.querySelectorAll('.carousel').forEach(carousel => {
-            let isDown = false;
-            let startX;
-            let scrollLeft;
-
+            let isDown = false, startX, scrollLeft;
             carousel.addEventListener('mousedown', (e) => {
                 isDown = true;
-                carousel.classList.add('active');
                 startX = e.pageX - carousel.offsetLeft;
                 scrollLeft = carousel.scrollLeft;
             });
-
-            carousel.addEventListener('mouseleave', () => {
-                isDown = false;
-                carousel.classList.remove('active');
-            });
-
-            carousel.addEventListener('mouseup', () => {
-                isDown = false;
-                carousel.classList.remove('active');
-            });
-
-            carousel.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - carousel.offsetLeft;
-                const walk = (x - startX) * 2;
-                carousel.scrollLeft = scrollLeft - walk;
-            });
+   
 
             // Touch events
             let startTouchX, startTouchScrollLeft;
