@@ -1,51 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>
-        Unnati Diya Maharjan
-    </title>
-    <!martian mono>
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet">
-        <!Azeret Mono>
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link
-                href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Martian+Mono:wght@100..800&display=swap"
-                rel="stylesheet">
-            <!Rubik Mono One>
-                <link rel="preconnect" href="https://fonts.googleapis.com">
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Martian+Mono:wght@100..800&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-                    rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unnati Diya Maharjan</title>
+    
+    <!-- Martian Mono -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet">
+    
+    <!-- Azeret Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet">
+    
+    <!-- Rubik Mono One -->
+    <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Martian+Mono:wght@100..800&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="button-container">
-        <button>Home</button>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Home</button>
         <a href="#Works">
-            <button>Work</button></a>
-        <a href="https://drive.google.com/file/d/12ilwB49QqJNDkbqbePYMZRTVrbVMQuqd/view?usp=sharing"
-            target="_blank">
-            <button>Resume</button></a>
+            <button>Work</button>
+        </a>
+        <a href="https://drive.google.com/file/d/12ilwB49QqJNDkbqbePYMZRTVrbVMQuqd/view?usp=sharing" target="_blank">
+            <button>Resume</button>
+        </a>
         <a href="#contact-footer">
             <button>Contact Me</button>
         </a>
     </div>
+    
     <div class="loGo">
         <button class="btn"><img src="logo.png" alt="LOGO"></button>
     </div>
+    
     <div class="intro01">
         <div class="intro">
             <div class="text-container">
                 <h1>
                     Hi, I am <span class="Name">Unnati Maharjan</span><br>
-                    <span class="Description">I create designs that embody brand essence through curated techniques with
-                        precision and creativity.</span>
+                    <span class="Description">I create designs that embody brand essence through curated techniques with precision and creativity.</span>
                 </h1>
             </div>
             <img src="Untitled_Artwork (1).png" class="intro-img" alt="My Image">
@@ -53,22 +50,16 @@
     </div>
 
     <div class="BackgroundClass">
-        <h2 class="slide-in">#Background </h2>
+        <h2 class="slide-in">#Background</h2>
         <div class="code-imitation">
-            <img src="Group 2.png" alt="code imitation" onclick="openForm('myForm'); toggleBlur(this);"
-                style="cursor: pointer;" style="max-width: 43rem;">
+            <img src="Group 2.png" alt="code imitation" onclick="openForm('myForm'); toggleBlur(this);" style="cursor: pointer; max-width: 43rem;">
         </div>
 
         <!-- The form remains hidden initially -->
         <div class="form-popup" id="myForm">
             <form action="/action_page.php" class="form-container">
                 <h1>Aspiring UX/UI Designer & Graphic Designer</h1>
-                <p>I’m a creative graphic designer with experience in both digital and print design, specializing in
-                    Adobe Creative Suite, web development, and brand identity. Currently studying at California Lutheran
-                    University, I excel in fast-paced environments, delivering high-quality work while collaborating
-                    effectively with teams and clients. My passion lies in creating visually impactful designs that tell
-                    a story and strengthen brand presence.</p>
-
+                <p>I'm a creative graphic designer with experience in both digital and print design, specializing in Adobe Creative Suite, web development, and brand identity. Currently studying at California Lutheran University, I excel in fast-paced environments, delivering high-quality work while collaborating effectively with teams and clients. My passion lies in creating visually impactful designs that tell a story and strengthen brand presence.</p>
 
                 <!-- Close button inside the form -->
                 <button type="button" class="btn cancel" onclick="closeForm('myForm'); removeBlur()">Close</button>
@@ -76,240 +67,264 @@
         </div>
     </div>
 
-    <h2 id="Works" class="slide-in">#Works </h2>
-<!-- Works Section -->
-<section id="Works">
-    <h2 class="slide-in">#Works</h2>
+    <!-- Works Section -->
+    <section id="Works">
+        <h2 class="slide-in">#Works</h2>
 
-    <!-- Marginalia -->
-    <div class="workPortfolio">
-        <div class="container">
-            <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
-                <div class="workImg">
-                    <img src="Marginalia_logo.PNG" alt="Marginalia logo" id="CODImg">
-                    <div class="dataText">
-                        <h3>Marginalia</h3>
-                        <h4>Writing from the Margins</h4>
-                        <p>Marginalia is a platform that helps readers turn their notes and highlights from books into organized, shareable insights. It combines the depth of personal note-taking with the reach of public publishing.</p>
-                        <a href="https://www.figma.com/proto/avLz9qNunJqS8PnSqvje5c/Marginalia?node-id=1206-2234&p=f&t=6OsDQa8x9i7rXJf7-1&scaling=scale-down&content-scaling=fixed&page-id=601%3A10&starting-point-node-id=605%3A9" target="_blank">
-                            <button class="githubbutton">View Website</button>
-                        </a>
-                        <a href="https://docs.google.com/presentation/d/1Wv_IXjaNi5HUCuaP-DXf0GwTasLGMU6Y36roBXb8kCk/edit?usp=sharing" target="_blank">
-                            <button class="view_all_designs">View Designs & Information</button>
-                        </a>
+        <!-- Marginalia -->
+        <div class="workPortfolio">
+            <div class="container">
+                <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
+                    <div class="workImg">
+                        <img src="Marginalia_logo.PNG" alt="Marginalia logo" id="CODImg">
+                        <div class="dataText">
+                            <h3>Marginalia</h3>
+                            <h4>Writing from the Margins</h4>
+                            <p>Marginalia is a platform that helps readers turn their notes and highlights from books into organized, shareable insights. It combines the depth of personal note-taking with the reach of public publishing.</p>
+                            <a href="https://www.figma.com/proto/avLz9qNunJqS8PnSqvje5c/Marginalia?node-id=1206-2234&p=f&t=6OsDQa8x9i7rXJf7-1&scaling=scale-down&content-scaling=fixed&page-id=601%3A10&starting-point-node-id=605%3A9" target="_blank">
+                                <button class="githubbutton">View Website</button>
+                            </a>
+                            <a href="https://docs.google.com/presentation/d/1Wv_IXjaNi5HUCuaP-DXf0GwTasLGMU6Y36roBXb8kCk/edit?usp=sharing" target="_blank">
+                                <button class="view_all_designs">View Designs & Information</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Guliyo -->
-    <div class="workPortfolio">
-        <div class="container">
-            <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
-                <div class="workImg">
-                    <img src="logo.JPG" alt="Guliyo branding mockup" id="CODImg">
-                    <div class="dataText">
-                        <h3>Guliyo</h3>
-                        <h4>Sweetness of Nepal</h4>
-                        <p>This luxury sweet brand was inspired by childhood admiration for beauty and tradition. Combining cultural illustration, bold typography, and vivid color, Guliyo reflects the opulence of South Asian heritage.</p>
-                        <a href="https://guliyo-landing-page.pages.dev/" target="_blank">
-                            <button class="githubbutton">View Website</button>
-                        </a>
-                        <button class="view_all_designs" data-target="guliyo-designs">View Designs</button>
+        <!-- Guliyo -->
+        <div class="workPortfolio">
+            <div class="container">
+                <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
+                    <div class="workImg">
+                        <img src="logo.JPG" alt="Guliyo branding mockup" id="CODImg2">
+                        <div class="dataText">
+                            <h3>Guliyo</h3>
+                            <h4>Sweetness of Nepal</h4>
+                            <p>This luxury sweet brand was inspired by childhood admiration for beauty and tradition. Combining cultural illustration, bold typography, and vivid color, Guliyo reflects the opulence of South Asian heritage.</p>
+                            <a href="https://guliyo-landing-page.pages.dev/" target="_blank">
+                                <button class="githubbutton">View Website</button>
+                            </a>
+                            <button class="view_all_designs" data-target="guliyo-designs">View Designs</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Guliyo Designs -->
-    <div class="additional-guliyo" id="guliyo-designs" style="display:none;">
-        <h3>Guliyo Designs</h3>
-        <div class="carousel">
-            <div class="image-container"><img src="lassi_art.JPG" alt="Guliyo artwork - Lassi"></div>
-            <div class="image-container"><img src="lassi_mockup.JPG" alt="Lassi mockup packaging"></div>
-            <div class="image-container"><img src="Jaad_art.JPG" alt="Jaad design concept"></div>
-            <div class="image-container"><img src="Jaad_mockup.JPG" alt="Jaad mockup packaging"></div>
-            <div class="image-container"><img src="jhola_mockup.JPG" alt="Guliyo bag mockup"></div>
-            <div class="image-container"><img src="poster.jpeg" alt="Guliyo promotional poster"></div>
-            <div class="image-container"><img src="poster_art.jpeg" alt="Poster concept art"></div>
-            <div class="image-container"><img src="poster2.JPG" alt="Poster version 2"></div>
+        <!-- Guliyo Designs -->
+        <div class="additional-guliyo" id="guliyo-designs" style="display:none;">
+            <h3>Guliyo Designs</h3>
+            <div class="carousel">
+                <div class="image-container"><img src="lassi_art.JPG" alt="Guliyo artwork - Lassi"></div>
+                <div class="image-container"><img src="lassi_mockup.JPG" alt="Lassi mockup packaging"></div>
+                <div class="image-container"><img src="Jaad_art.JPG" alt="Jaad design concept"></div>
+                <div class="image-container"><img src="Jaad_mockup.JPG" alt="Jaad mockup packaging"></div>
+                <div class="image-container"><img src="jhola_mockup.JPG" alt="Guliyo bag mockup"></div>
+                <div class="image-container"><img src="poster.jpeg" alt="Guliyo promotional poster"></div>
+                <div class="image-container"><img src="poster_art.jpeg" alt="Poster concept art"></div>
+                <div class="image-container"><img src="poster2.JPG" alt="Poster version 2"></div>
+            </div>
         </div>
-    </div>
 
-    <!-- AI in Art History -->
-    <div class="workPortfolio">
-        <div class="container">
-            <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
-                <div class="workImg">
-                    <img src="art_ai.jpg" alt="AI in Art History project" id="CODImg">
-                    <div class="dataText">
-                        <h3>Machine Learning</h3>
-                        <h4>AI in Art History</h4>
-                        <p>This project explores how Artificial Intelligence can analyze color palettes and stylistic
-                            features to predict the period, style, and location of artworks—advancing understanding of art evolution.</p>
-                        <a href="https://github.com/1006udm/Mortality-and-Reasons-" target="_blank">
-                            <button class="githubbutton">GitHub</button>
-                        </a>
+        <!-- AI in Art History -->
+        <div class="workPortfolio">
+            <div class="container">
+                <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
+                    <div class="workImg">
+                        <img src="art_ai.jpg" alt="AI in Art History project" id="CODImg3">
+                        <div class="dataText">
+                            <h3>Machine Learning</h3>
+                            <h4>AI in Art History</h4>
+                            <p>This project explores how Artificial Intelligence can analyze color palettes and stylistic features to predict the period, style, and location of artworks—advancing understanding of art evolution.</p>
+                            <a href="https://github.com/1006udm/Mortality-and-Reasons-" target="_blank">
+                                <button class="githubbutton">GitHub</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Client-Server Database -->
-    <div class="workPortfolio">
-        <div class="container">
-            <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
-                <div class="workImg">
-                    <img src="computer-156951_1920.png" alt="Client-Server database architecture" id="CODImg">
-                    <div class="dataText">
-                        <h3>Software Engineering</h3>
-                        <h4>Client-Server Database Interactions</h4>
-                        <p>Designed a Java and MySQL client-server system for secure login, data storage, and automated
-                            email generation. Includes UML class and use-case diagrams. Collaborated with Justin Bouse, Tang Favish, and Micha Wisniewski.</p>
-                        <a href="https://github.com/1006udm/Client-Server-Database-Interactions" target="_blank">
-                            <button class="githubbutton">GitHub</button>
-                        </a>
+        <!-- Client-Server Database -->
+        <div class="workPortfolio">
+            <div class="container">
+                <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
+                    <div class="workImg">
+                        <img src="computer-156951_1920.png" alt="Client-Server database architecture" id="CODImg4">
+                        <div class="dataText">
+                            <h3>Software Engineering</h3>
+                            <h4>Client-Server Database Interactions</h4>
+                            <p>Designed a Java and MySQL client-server system for secure login, data storage, and automated email generation. Includes UML class and use-case diagrams. Collaborated with Justin Bouse, Tang Favish, and Micha Wisniewski.</p>
+                            <a href="https://github.com/1006udm/Client-Server-Database-Interactions" target="_blank">
+                                <button class="githubbutton">GitHub</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Data Analysis -->
-    <div class="workPortfolio">
-        <div class="container">
-            <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
-                <div class="workImg">
-                    <img src="CODmain.png" alt="Data analysis visualization" id="CODImg">
-                    <div class="dataText">
-                        <h3>Data Analysis</h3>
-                        <h4>Gender, Region, and Cause of Death</h4>
-                        <p>This study used R programming to analyze gender, regional factors, and mortality rates for the
-                            top ten causes of death in the U.S.</p>
-                        <a href="https://github.com/1006udm/Mortality-and-Reasons-" target="_blank">
-                            <button class="githubbutton">GitHub</button>
-                        </a>
+        <!-- Data Analysis -->
+        <div class="workPortfolio">
+            <div class="container">
+                <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
+                    <div class="workImg">
+                        <img src="CODmain.png" alt="Data analysis visualization" id="CODImg5">
+                        <div class="dataText">
+                            <h3>Data Analysis</h3>
+                            <h4>Gender, Region, and Cause of Death</h4>
+                            <p>This study used R programming to analyze gender, regional factors, and mortality rates for the top ten causes of death in the U.S.</p>
+                            <a href="https://github.com/1006udm/Mortality-and-Reasons-" target="_blank">
+                                <button class="githubbutton">GitHub</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Dashain Delicacies -->
-    <div class="workPortfolio">
-        <div class="container">
-            <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
-                <div class="workImg">
-                    <img src="DashainSAMPLE062.jpg" alt="Dashain Delicacies menu design" id="CODImg">
-                    <div class="dataText">
-                        <h3>Graphic Design</h3>
-                        <h4>Dashain Delicacies</h4>
-                        <p>Created using Procreate, Adobe Illustrator, and InDesign, this menu design
-                            highlights the architectural style of the Kathmandu Valley while showcasing the rich culinary
-                            culture celebrated during the Hindu festival of Dashain.</p>
-                        <a href="#additional-content">
-                            <button class="view_all_designs">View All Designs</button>
-                        </a>
+        <!-- Dashain Delicacies -->
+        <div class="workPortfolio">
+            <div class="container">
+                <div class="dataAnalysis" style="cursor: pointer; margin-bottom: 5rem;">
+                    <div class="workImg">
+                        <img src="DashainSAMPLE062.jpg" alt="Dashain Delicacies menu design" id="CODImg6">
+                        <div class="dataText">
+                            <h3>Graphic Design</h3>
+                            <h4>Dashain Delicacies</h4>
+                            <p>Created using Procreate, Adobe Illustrator, and InDesign, this menu design highlights the architectural style of the Kathmandu Valley while showcasing the rich culinary culture celebrated during the Hindu festival of Dashain.</p>
+                            <button class="view_all_designs" data-target="additional-content">View All Designs</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Additional Dashain Designs -->
-    <div class="additional-content" id="additional-content">
-        <h3>Additional Works</h3>
-        <div class="carousel">
-            <div class="image-container"><img src="endracism.jpg" alt="End Racism poster"></div>
-            <div class="image-container"><img src="Frontposterfall2021.NP_page-0001.jpg" alt="Fall 2021 poster"></div>
-            <div class="image-container"><img src="malibu01.jpg" alt="Malibu poster"></div>
-            <div class="image-container"><img src="Dashainmain.jpg" alt="Dashain main poster"></div>
+        <!-- Additional Dashain Designs -->
+        <div class="additional-content" id="additional-content" style="display:none;">
+            <h3>Additional Works</h3>
+            <div class="carousel">
+                <div class="image-container"><img src="endracism.jpg" alt="End Racism poster"></div>
+                <div class="image-container"><img src="Frontposterfall2021.NP_page-0001.jpg" alt="Fall 2021 poster"></div>
+                <div class="image-container"><img src="malibu01.jpg" alt="Malibu poster"></div>
+                <div class="image-container"><img src="Dashainmain.jpg" alt="Dashain main poster"></div>
+            </div>
         </div>
-    </div>
-
-</section>
-
-
-    <script src="script.js"></script>
-
-
-
+    </section>
 
     <footer id="contact-footer">
         <nav>
-            <p class="contactme"> //Contact<br> me </p>
+            <p class="contactme">//Contact<br>me</p>
         </nav>
         <div>
             <ul>
-                <li><a href="mailto:unnatimaharjan06@gmail.com" class="email"> email</a></li>
-                <li><a class="linkedin" href="https://www.linkedin.com/in/unnati-maharjan-b170282bb/"
-                        target="_blank">linkedin</a></li>
+                <li><a href="mailto:unnatimaharjan06@gmail.com" class="email">email</a></li>
+                <li><a class="linkedin" href="https://www.linkedin.com/in/unnati-maharjan-b170282bb/" target="_blank">linkedin</a></li>
             </ul>
         </div>
     </footer>
-</body>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const h2Elements = document.querySelectorAll("h2.slide-in");
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                    observer.unobserve(entry.target); // Animate only once
-                }
+    <script>
+        // Slide-in animation for h2 elements
+        document.addEventListener("DOMContentLoaded", () => {
+            const h2Elements = document.querySelectorAll("h2.slide-in");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+
+            h2Elements.forEach(h2 => observer.observe(h2));
+
+            // Toggle design sections
+            document.querySelectorAll('.view_all_designs').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        if (targetElement.style.display === 'none' || targetElement.style.display === '') {
+                            targetElement.style.display = 'block';
+                            this.textContent = 'Hide Designs';
+                        } else {
+                            targetElement.style.display = 'none';
+                            this.textContent = 'View All Designs';
+                        }
+                    }
+                });
             });
         });
 
-        h2Elements.forEach(h2 => observer.observe(h2));
-    });
-    document.querySelectorAll('.carousel').forEach(carousel => {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+        // Carousel functionality
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
 
-        carousel.addEventListener('mousedown', (e) => {
-            isDown = true;
-            carousel.classList.add('active');
-            startX = e.pageX - carousel.offsetLeft;
-            scrollLeft = carousel.scrollLeft;
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                carousel.classList.add('active');
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+                carousel.classList.remove('active');
+            });
+
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.classList.remove('active');
+            });
+
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+
+            // Touch events
+            let startTouchX, startTouchScrollLeft;
+
+            carousel.addEventListener('touchstart', (e) => {
+                startTouchX = e.touches[0].pageX;
+                startTouchScrollLeft = carousel.scrollLeft;
+            }, { passive: true });
+
+            carousel.addEventListener('touchmove', (e) => {
+                const x = e.touches[0].pageX;
+                const walk = (x - startTouchX) * 1.5;
+                carousel.scrollLeft = startTouchScrollLeft - walk;
+            }, { passive: true });
         });
 
-        carousel.addEventListener('mouseleave', () => {
-            isDown = false;
-            carousel.classList.remove('active');
-        });
+        // Form functions (if needed)
+        function openForm(formId) {
+            document.getElementById(formId).style.display = "block";
+        }
 
-        carousel.addEventListener('mouseup', () => {
-            isDown = false;
-            carousel.classList.remove('active');
-        });
+        function closeForm(formId) {
+            document.getElementById(formId).style.display = "none";
+        }
 
-        carousel.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - carousel.offsetLeft;
-            const walk = (x - startX) * 2; // Adjust scroll speed
-            carousel.scrollLeft = scrollLeft - walk;
-        });
-    });
-    let startTouchX, startTouchScrollLeft;
+        function toggleBlur(element) {
+            document.body.classList.toggle('blur-background');
+        }
 
-    carousel.addEventListener('touchstart', (e) => {
-        startTouchX = e.touches[0].pageX;
-        startTouchScrollLeft = carousel.scrollLeft;
-    }, { passive: true });
-
-    carousel.addEventListener('touchmove', (e) => {
-        const x = e.touches[0].pageX;
-        const walk = (x - startTouchX) * 1.5; // Adjust scroll speed
-        carousel.scrollLeft = startTouchScrollLeft - walk;
-    }, { passive: true });
-
-</script>
+        function removeBlur() {
+            document.body.classList.remove('blur-background');
+        }
+    </script>
+</body>
 
 </html>
-
