@@ -1,967 +1,246 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unnati Diya Maharjan</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Unnati Diya Maharjan — UX/UI &amp; Graphic Designer</title>
+    <meta name="description" content="Portfolio of Unnati Maharjan, a UX/UI and graphic designer creating brand identities, web experiences and data-driven projects.">
+    <meta name="theme-color" content="#fffefa">
+    <link rel="icon" href="assets/images/site/logo.png">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            background-color: #fffefa;
-            margin: 0;
-            padding: 0;
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Navigation */
-        .button-container {
-            position: absolute;
-            top: 8px;
-            right: 16px;
-            display: flex;
-            gap: 10px;
-            z-index: 100;
-        }
-
-        button {
-            background-color: #fffefa;
-            color: #6F96D1;
-            font-family: "Azeret Mono";
-            border: none;
-            padding: 10px 15px;
-            text-align: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #6F96D1;
-            color: #F7f2ef;
-        }
-
-        /* Logo */
-        .loGo {
-            top: 1rem;
-            left: 1rem;
-            padding: 10px;
-            display: flex;
-            border-radius: 5px;
-        }
-
-        .btn {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #D9C6B5;
-        }
-
-        /* Intro Section */
-        .intro01 {
-            align-items: center;
-            justify-content: center;
-        }
-
-        .intro {
-            display: flex;
-            height: 80vh;
-            justify-content: flex-start;
-            align-items: center;
-            position: relative;
-            padding-left: 50px;
-            padding-right: 50px;
-        }
-
-        .text-container {
-            position: absolute;
-            top: 50%;
-            left: 40%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
-            z-index: 2;
-        }
-
-        .intro-img {
-            width: 60%;
-            height: auto;
-            position: relative;
-            bottom: -1rem;
-            z-index: 1;
-            left: 45rem;
-        }
-
-        @keyframes giggle {
-            0%, 100% { transform: rotate(0deg); }
-            10% { transform: rotate(2deg); }
-            20% { transform: rotate(-2deg); }
-            40% { transform: rotate(-1.5deg); }
-            50% { transform: rotate(1deg); }
-            70% { transform: rotate(0.5deg); }
-            80% { transform: rotate(-0.5deg); }
-            90% { transform: rotate(0.2deg); }
-        }
-
-        .intro-img:hover {
-            animation: giggle 0.4s ease-in-out;
-        }
-
-        /* Typography */
-        .Name {
-            font-family: "Rubik Mono One";
-            font-size: 120px;
-            color: #344eab;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .Description {
-            font-family: "Azeret Mono";
-            font-size: 15px;
-            font-weight: normal;
-            color: #091D58;
-            letter-spacing: -0.4px;
-        }
-
-        h1 {
-            font-family: "Azeret Mono";
-            font-size: 32px;
-            color: #344EAB;
-        }
-
-        h2 {
-            font-size: 64px;
-            color: #122773;
-            font-family: "Martian Mono";
-            letter-spacing: 3px;
-            padding: 50px;
-            transition: filter 0.3s ease, color 0.3s ease;
-        }
-
-        h2.slide-in {
-            opacity: 0;
-            transform: translateX(100%);
-            transition: transform 3s ease-out, opacity 0.8s ease-out;
-        }
-
-        h2.slide-in.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        h3 {
-            font-family: "Azeret Mono";
-            font-size: 40px;
-            color: #3149a2;
-            margin-block-start: 0.5em;
-            margin-block-end: 0.5em;
-        }
-
-        h4 {
-            font-family: "Azeret Mono";
-            font-size: 32px;
-            color: #091e5d;
-            margin-block-start: 0.5em;
-            margin-block-end: 0.5em;
-        }
-
-        p {
-            font-family: "Azeret Mono";
-            font-size: 14px;
-            color: #000000;
-            text-align: justify;
-            word-wrap: break-word;
-            white-space: normal;
-            word-break: break-word;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        /* Background Section */
-        .BackgroundClass {
-            margin-bottom: 3rem;
-        }
-
-        .code-imitation {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .code-imitation img {
-            transform: scale(1.1);
-            transition: filter 0.3s ease;
-        }
-
-        .code-imitation img.blurred {
-            filter: blur(1rem);
-        }
-
-        /* Form Popup */
-        .form-popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 600px;
-            height: auto;
-            max-height: 80vh;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            z-index: 9999;
-            overflow: auto;
-            box-sizing: border-box;
-        }
-
-        .form-container {
-            max-width: 100%;
-            padding: 10px;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 15px;
-        }
-
-        .btn.cancel {
-            background-color: red;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .btn.cancel:hover {
-            background-color: darkred;
-        }
-
-        /* Work Portfolio */
-        .workPortfolio {
-            width: 80%;
-            margin: 0 auto 5rem auto;
-        }
-
-        .dataAnalysis {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 5rem;
-        }
-
-        .dataAnalysis img {
-            gap: 2rem;
-            padding: 2rem;
-            float: right;
-            max-width: 45%;
-            width: 25rem;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .codimg ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .codimg img:hover {
-            opacity: 0.9;
-            transform: scale(1.05);
-            cursor: pointer;
-        }
-
-        .Menu {
-            display: flex;
-            gap: 2rem;
-            width: 80%;
-            margin: 0 auto 5rem auto;
-        }
-
-        .Menu img {
-            padding-right: 2rem;
-            max-width: 45%;
-            width: 25rem;
-            height: auto;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            float: left;
-        }
-
-        .Menu img:hover {
-            opacity: 0.9;
-            transform: scale(1.05);
-            cursor: pointer;
-        }
-
-        /* Buttons */
-        .githubbutton,
-        .view_all_designs,
-        .viewAll {
-            font-size: 1rem;
-            padding-left: 0;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* Carousel */
-        .additional-guliyo,
-        .additional-content {
-            display: none;
-            margin-top: 5rem;
-            padding: 5rem;
-            padding-top: 1rem;
-            text-align: right;
-            background-image: linear-gradient(45deg, #FFF9EF, #fffefa);
-        }
-
-        .carousel {
-            display: grid;
-            grid-auto-flow: column;
-            scroll-behavior: auto;
-            gap: 1.2rem;
-            overflow-x: auto;
-            overflow-y: hidden;
-            overscroll-behavior-x: contain;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            cursor: grab;
-        }
-
-        .carousel:active {
-            cursor: grabbing;
-        }
-
-        .carousel::-webkit-scrollbar {
-            display: none;
-        }
-
-        .image-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            scroll-snap-align: start;
-        }
-
-        .image-container img {
-            display: block;
-            width: auto;
-            height: 25rem;
-            transition: transform 0.3s ease;
-        }
-
-        .image-container img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #273A80;
-            color: #FFF9EF;
-            display: flex;
-            align-items: center;
-            width: 100vw;
-            padding: 2rem 0;
-        }
-
-        .contactme {
-            margin-right: 1rem;
-            width: 831px;
-            color: #DBDBDB;
-            text-align: right;
-            font-family: "Azeret Mono";
-            font-size: 96px;
-            font-style: italic;
-            font-weight: 500;
-            letter-spacing: 9.6px;
-            margin-bottom: 6rem;
-        }
-
-        ul li {
-            list-style-type: none;
-        }
-
-        .email,
-        .linkedin {
-            color: #EEF1F6;
-            text-align: left;
-            font-family: "Martian Mono";
-            font-size: 48px;
-            font-weight: 400;
-            line-height: 35px;
-            letter-spacing: 0.96px;
-            display: block;
-        }
-
-        .email {
-            margin-bottom: 6rem;
-        }
-
-        /* MOBILE RESPONSIVE STYLES */
-        @media (max-width: 768px) {
-            body {
-                padding: 0 2rem;
-            }
-
-            /* Navigation */
-            .button-container {
-                position: relative;
-                flex-direction: column;
-                gap: 0.5rem;
-                padding: 1rem;
-                width: 100%;
-                top: 0;
-                right: 0;
-            }
-
-            .button-container button,
-            .button-container a {
-                width: 100%;
-            }
-
-            .button-container a button {
-                width: 100%;
-            }
-
-            /* Logo */
-            .loGo {
-                padding: 1rem;
-            }
-
-            .loGo img {
-                max-width: 80px;
-            }
-
-            /* Intro */
-            .intro01 {
-                padding: 1rem 0;
-            }
-
-            .intro {
-                flex-direction: column;
-                text-align: center;
-                height: auto;
-                padding: 1rem;
-            }
-
-            .text-container {
-                position: relative;
-                top: auto;
-                left: auto;
-                transform: none;
-            }
-
-            .text-container h1 {
-                font-size: 1.5rem;
-                line-height: 1.4;
-            }
-
-            .Name {
-                font-size: 2rem;
-            }
-
-            .Description {
-                font-size: 1rem;
-                display: block;
-                margin-top: 1rem;
-            }
-
-            .intro-img {
-                position: relative;
-                width: 100%;
-                max-width: 300px;
-                left: 0;
-                margin-top: 2rem;
-            }
-
-            /* Background */
-            .BackgroundClass {
-                padding: 1rem 0;
-            }
-
-            .BackgroundClass h2 {
-                font-size: 2rem;
-                padding: 1rem;
-            }
-
-            .code-imitation {
-                height: auto;
-                padding: 2rem 0;
-            }
-
-            .code-imitation img {
-                max-width: 100% !important;
-                height: auto;
-                transform: scale(1);
-            }
-
-            /* Form */
-            .form-popup {
-                width: 95%;
-                max-width: 500px;
-                padding: 15px;
-            }
-
-            .form-container h1 {
-                font-size: 1.3rem;
-            }
-
-            .form-container p {
-                font-size: 0.9rem;
-            }
-
-            /* Typography */
-            h2 {
-                font-size: 2rem;
-                padding: 1rem;
-            }
-
-            h3 {
-                font-size: 1.5rem;
-            }
-
-            h4 {
-                font-size: 1.2rem;
-            }
-
-            p {
-                font-size: 0.9rem;
-            }
-
-            /* Works */
-            #Works {
-                font-size: 2rem;
-                padding: 1rem;
-            }
-
-            .workPortfolio,
-            .Menu {
-                width: 100%;
-                padding: 0;
-            }
-
-            .dataAnalysis {
-                flex-direction: column;
-                gap: 1rem;
-                margin-bottom: 3rem;
-            }
-
-            .dataAnalysis img {
-                float: none;
-                max-width: 100% !important;
-                width: 100%;
-                padding: 0;
-            }
-
-            .codimg,
-            .dataText,
-            .MenuText {
-                width: 100%;
-                padding: 0;
-            }
-
-            .Menu {
-                flex-direction: column;
-            }
-
-            .Menu img {
-                float: none;
-                max-width: 100% !important;
-                width: 100%;
-                padding: 0;
-                margin-bottom: 1rem;
-            }
-
-            /* Buttons */
-            .githubbutton,
-            .view_all_designs,
-            .viewAll {
-                width: 100%;
-                margin: 0.5rem 0;
-                padding: 0.8rem;
-                font-size: 0.9rem;
-            }
-
-            /* Carousel */
-            .additional-guliyo,
-            .additional-content {
-                padding: 1rem;
-                margin-top: 2rem;
-            }
-
-            .additional-guliyo h3,
-            .additional-content h3 {
-                font-size: 1.3rem;
-            }
-
-            .carousel {
-                gap: 0.8rem;
-                padding: 1rem 0;
-            }
-
-            .image-container {
-                min-width: 250px;
-                padding: 0.5rem;
-            }
-
-            .image-container img {
-                height: 20rem;
-            }
-
-            /* Footer */
-            footer {
-                flex-direction: column;
-                text-align: center;
-                padding: 2rem 1rem;
-                gap: 1.5rem;
-            }
-
-            .contactme {
-                font-size: 2rem;
-                width: auto;
-                margin-bottom: 2rem;
-                letter-spacing: 2px;
-                text-align: center;
-            }
-
-            footer ul {
-                padding: 0;
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .email,
-            .linkedin {
-                font-size: 1.5rem;
-                text-align: center;
-                margin-bottom: 1rem;
-            }
-        }
-
-        /* Extra small phones */
-        @media (max-width: 480px) {
-            body {
-                padding: 0 1rem;
-            }
-
-            .Name {
-                font-size: 1.5rem;
-            }
-
-            .Description {
-                font-size: 0.9rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            h3 {
-                font-size: 1.3rem;
-            }
-
-            h4 {
-                font-size: 1rem;
-            }
-
-            .image-container {
-                min-width: 200px;
-            }
-
-            .image-container img {
-                height: 15rem;
-            }
-
-            .contactme {
-                font-size: 1.5rem;
-            }
-
-            .email,
-            .linkedin {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400..700&family=Azeret+Mono:ital,wght@0,400..700;1,400..600&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
-    <div class="button-container">
-        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Home</button>
-        <a href="#Works"><button>Work</button></a>
-        <a href="https://drive.google.com/file/d/12ilwB49QqJNDkbqbePYMZRTVrbVMQuqd/view?usp=sharing" target="_blank">
-            <button>Resume</button>
-        </a>
-        <a href="#contact-footer"><button>Contact Me</button></a>
-    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="loGo">
-        <button class="btn"><img src="logo.png" alt="LOGO"></button>
-    </div>
+    <!-- ============ HEADER / NAV ============ -->
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a class="logo" href="#top" aria-label="Unnati Maharjan — back to top">
+                <img src="assets/images/site/logo.png" alt="" width="40" height="40">
+            </a>
+            <nav aria-label="Main">
+                <ul class="nav-list">
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="https://drive.google.com/file/d/12ilwB49QqJNDkbqbePYMZRTVrbVMQuqd/view?usp=sharing" target="_blank" rel="noopener">Resume<span class="sr-only"> (opens in new tab)</span></a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <div class="intro01">
-        <div class="intro">
-            <div class="text-container">
-                <h1>
-                    Hi, I am <span class="Name">Unnati Maharjan</span><br>
-                    <span class="Description">I create designs that embody brand essence through curated techniques with precision and creativity.</span>
+    <main id="main">
+
+        <!-- ============ HERO ============ -->
+        <section class="hero wrap" id="top" aria-labelledby="hero-title">
+            <div class="hero-text">
+                <h1 id="hero-title">
+                    <span class="hero-greeting">Hi, I am</span>
+                    <span class="hero-name"><span>Unnati</span> <span>Maharjan</span></span>
                 </h1>
-            </div>
-            <img src="Untitled_Artwork (1).png" class="intro-img" alt="My Image">
-        </div>
-    </div>
-
-    <div class="BackgroundClass">
-        <h2 class="slide-in">#Background</h2>
-        <div class="code-imitation">
-            <img src="Group 2.png" alt="code imitation" onclick="openForm('myForm'); toggleBlur(this);" style="cursor: pointer; max-width: 43rem;">
-        </div>
-
-        <div class="form-popup" id="myForm">
-            <form class="form-container">
-                <h1>Aspiring UX/UI Designer & Graphic Designer</h1>
-                <p>I'm a creative graphic designer with experience in both digital and print design, specializing in Adobe Creative Suite, web development, and brand identity. Currently studying at California Lutheran University, I excel in fast-paced environments, delivering high-quality work while collaborating effectively with teams and clients. My passion lies in creating visually impactful designs that tell a story and strengthen brand presence.</p>
-                <button type="button" class="btn cancel" onclick="closeForm('myForm'); removeBlur()">Close</button>
-            </form>
-        </div>
-    </div>
-
-    <h2 id="Works" class="slide-in">#Works</h2>
-
-    <!-- Marginalia -->
-    <div class="workPortfolio">
-        <div class="container">
-            <div class="dataAnalysis">
-                <div class="workImg">
-                    <div class="codimg">
-                        <ul>
-                            <img src="Marginalia_logo.PNG" alt="Logo for Marginalia" id="CODImg">
-                        </ul>
-                    </div>
-                    <div class="dataText">
-                        <h3>Marginalia</h3>
-                        <h4>Writing from the margins</h4>
-                        <p>Marginalia is a platform that helps readers turn their notes and highlights from books into organized, shareable insights. It combines the depth of personal note-taking with the reach of public publishing. Users can capture and summarize ideas, keep them private as part of their own learning archive, or share them as thoughtful reflections for others to explore.</p>
-                        <a href="https://www.figma.com/proto/avLz9qNunJqS8PnSqvje5c/Marginalia?node-id=1206-2234&p=f&t=6OsDQa8x9i7rXJf7-1&scaling=scale-down&content-scaling=fixed&page-id=601%3A10&starting-point-node-id=605%3A9" target="_blank">
-                            <button class="githubbutton">View Website</button>
-                        </a>
-                        <a href="https://docs.google.com/presentation/d/1Wv_IXjaNi5HUCuaP-DXf0GwTasLGMU6Y36roBXb8kCk/edit?usp=sharing" target="_blank">
-                            <button class="view_all_designs">View Designs & Information</button>
-                        </a>
-                    </div>
+                <p class="hero-description">I create designs that embody brand essence through curated techniques with precision and creativity.</p>
+                <div class="actions">
+                    <a class="btn btn-primary" href="#work">See my work</a>
+                    <a class="btn" href="https://drive.google.com/file/d/12ilwB49QqJNDkbqbePYMZRTVrbVMQuqd/view?usp=sharing" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a>
                 </div>
             </div>
-        </div>
-    </div>
+            <img class="hero-img"
+                 src="assets/images/site/hero-illustration-480.webp"
+                 srcset="assets/images/site/hero-illustration-480.webp 480w, assets/images/site/hero-illustration-960.webp 960w"
+                 sizes="(min-width: 60rem) 26rem, 14rem"
+                 width="960" height="960"
+                 alt="Illustrated self-portrait of Unnati with a red bob haircut">
+        </section>
 
-    <!-- Guliyo -->
-    <div class="Menu">
-        <div class="container01">
-            <div class="workImg">
-                <img src="logo.JPG" alt="Guliyo Brand" id="dashianMenu">
-                <div class="MenuText">
-                    <h3>Brand Design</h3>
-                    <h4>Guliyo: sweetness of Nepal</h4>
-                    <p>This luxury sweet brand was inspired by my childhood admiration for beauty and tradition. Combining cultural illustration, bold typography, and vivid color, Guliyo reflects the opulence of South Asian heritage.</p>
-                    <a href="https://guliyo-landing-page.pages.dev/" target="_blank">
-                        <button class="githubbutton">Website</button>
-                    </a>
-                    <button class="viewAll" data-target="guliyo-designs">View All Designs</button>
+        <!-- ============ WORK ============ -->
+        <section class="section wrap" id="work" aria-labelledby="work-title">
+            <h2 class="section-title reveal" id="work-title">#Works</h2>
+
+            <ul class="project-list" role="list">
+
+                <!-- Marginalia -->
+                <li>
+                    <article class="project" aria-labelledby="p-marginalia">
+                        <figure class="project-media">
+                            <img src="assets/images/projects/marginalia-480.webp"
+                                 srcset="assets/images/projects/marginalia-480.webp 480w, assets/images/projects/marginalia-960.webp 960w"
+                                 sizes="(min-width: 60rem) 30rem, calc(100vw - 2rem)"
+                                 width="960" height="960" loading="lazy" decoding="async"
+                                 alt="Marginalia logo: a pen nib inside a circle">
+                        </figure>
+                        <div class="project-body">
+                            <p class="eyebrow">UX/UI Design</p>
+                            <h3 id="p-marginalia">Marginalia</h3>
+                            <p class="tagline">Writing from the margins</p>
+                            <p>Marginalia is a platform that helps readers turn their notes and highlights from books into organized, shareable insights. It combines the depth of personal note-taking with the reach of public publishing. Users can capture and summarize ideas, keep them private as part of their own learning archive, or share them as thoughtful reflections for others to explore.</p>
+                            <div class="actions">
+                                <a class="btn btn-primary" href="https://www.figma.com/proto/avLz9qNunJqS8PnSqvje5c/Marginalia?node-id=1206-2234&amp;p=f&amp;t=6OsDQa8x9i7rXJf7-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=601%3A10&amp;starting-point-node-id=605%3A9" target="_blank" rel="noopener">View prototype <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a>
+                                <a class="btn" href="https://docs.google.com/presentation/d/1Wv_IXjaNi5HUCuaP-DXf0GwTasLGMU6Y36roBXb8kCk/edit?usp=sharing" target="_blank" rel="noopener">Designs &amp; case study <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+
+                <!-- Guliyo -->
+                <li>
+                    <article class="project" aria-labelledby="p-guliyo">
+                        <figure class="project-media project-media--fill">
+                            <img src="assets/images/projects/guliyo-480.webp"
+                                 srcset="assets/images/projects/guliyo-480.webp 480w, assets/images/projects/guliyo-960.webp 960w"
+                                 sizes="(min-width: 60rem) 30rem, calc(100vw - 2rem)"
+                                 width="960" height="960" loading="lazy" decoding="async"
+                                 alt="Guliyo logo: a dark red tree with a golden moon on a crimson background">
+                        </figure>
+                        <div class="project-body">
+                            <p class="eyebrow">Brand Design</p>
+                            <h3 id="p-guliyo">Guliyo</h3>
+                            <p class="tagline">Sweetness of Nepal</p>
+                            <p>This luxury sweet brand was inspired by my childhood admiration for beauty and tradition. Combining cultural illustration, bold typography, and vivid color, Guliyo reflects the opulence of South Asian heritage.</p>
+                            <div class="actions">
+                                <a class="btn btn-primary" href="https://guliyo-landing-page.pages.dev/" target="_blank" rel="noopener">Visit website <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a>
+                                <button class="btn" type="button" aria-expanded="false" aria-controls="guliyo-designs" data-toggle-gallery>
+                                    <span data-label>View all designs</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Guliyo gallery (revealed by the button above) -->
+                        <div class="gallery" id="guliyo-designs" hidden>
+                            <div class="gallery-head">
+                                <h4>Guliyo designs</h4>
+                                <div class="gallery-controls">
+                                    <button class="icon-btn" type="button" data-scroll="-1" aria-label="Previous designs">←</button>
+                                    <button class="icon-btn" type="button" data-scroll="1" aria-label="Next designs">→</button>
+                                </div>
+                            </div>
+                            <ul class="carousel" role="list" tabindex="0" aria-label="Guliyo designs, scroll sideways">
+                                <li><img src="assets/images/guliyo-gallery/lassi-art-400.webp" srcset="assets/images/guliyo-gallery/lassi-art-400.webp 267w, assets/images/guliyo-gallery/lassi-art-800.webp 533w" sizes="(min-width: 48rem) 17rem, 12rem" width="533" height="800" loading="lazy" decoding="async" alt="Guliyo lassi label artwork"></li>
+                                <li><img src="assets/images/guliyo-gallery/lassi-mockup-400.webp" srcset="assets/images/guliyo-gallery/lassi-mockup-400.webp 283w, assets/images/guliyo-gallery/lassi-mockup-800.webp 566w" sizes="(min-width: 48rem) 18rem, 13rem" width="566" height="800" loading="lazy" decoding="async" alt="Guliyo lassi bottle mockup"></li>
+                                <li><img src="assets/images/guliyo-gallery/jaad-art-400.webp" srcset="assets/images/guliyo-gallery/jaad-art-400.webp 400w, assets/images/guliyo-gallery/jaad-art-800.webp 800w" sizes="(min-width: 48rem) 25rem, 18rem" width="800" height="800" loading="lazy" decoding="async" alt="Guliyo jaad label artwork"></li>
+                                <li><img src="assets/images/guliyo-gallery/jaad-mockup-400.webp" srcset="assets/images/guliyo-gallery/jaad-mockup-400.webp 283w, assets/images/guliyo-gallery/jaad-mockup-800.webp 566w" sizes="(min-width: 48rem) 18rem, 13rem" width="566" height="800" loading="lazy" decoding="async" alt="Guliyo jaad bottle mockup"></li>
+                                <li><img src="assets/images/guliyo-gallery/jhola-mockup-400.webp" srcset="assets/images/guliyo-gallery/jhola-mockup-400.webp 400w, assets/images/guliyo-gallery/jhola-mockup-800.webp 800w" sizes="(min-width: 48rem) 25rem, 18rem" width="800" height="800" loading="lazy" decoding="async" alt="Guliyo tote bag mockup"></li>
+                                <li><img src="assets/images/guliyo-gallery/poster-400.webp" srcset="assets/images/guliyo-gallery/poster-400.webp 400w, assets/images/guliyo-gallery/poster-800.webp 800w" sizes="(min-width: 48rem) 25rem, 18rem" width="800" height="800" loading="lazy" decoding="async" alt="Guliyo promotional poster"></li>
+                                <li><img src="assets/images/guliyo-gallery/poster-art-400.webp" srcset="assets/images/guliyo-gallery/poster-art-400.webp 768w, assets/images/guliyo-gallery/poster-art-800.webp 1536w" sizes="(min-width: 48rem) 48rem, 34rem" width="1536" height="800" loading="lazy" decoding="async" alt="Guliyo wide poster artwork"></li>
+                                <li><img src="assets/images/guliyo-gallery/poster-2-400.webp" srcset="assets/images/guliyo-gallery/poster-2-400.webp 283w, assets/images/guliyo-gallery/poster-2-800.webp 566w" sizes="(min-width: 48rem) 18rem, 13rem" width="566" height="800" loading="lazy" decoding="async" alt="Second Guliyo poster"></li>
+                            </ul>
+                        </div>
+                    </article>
+                </li>
+
+                <!-- AI in Art History -->
+                <li>
+                    <article class="project" aria-labelledby="p-ai">
+                        <figure class="project-media project-media--fill">
+                            <img src="assets/images/projects/ai-art-history-480.webp"
+                                 srcset="assets/images/projects/ai-art-history-480.webp 480w, assets/images/projects/ai-art-history-960.webp 960w"
+                                 sizes="(min-width: 60rem) 30rem, calc(100vw - 2rem)"
+                                 width="960" height="1440" loading="lazy" decoding="async"
+                                 alt="Classical sculpture of a winged figure on a building facade against a blue sky">
+                        </figure>
+                        <div class="project-body">
+                            <p class="eyebrow">Machine Learning</p>
+                            <h3 id="p-ai">AI in Art History</h3>
+                            <p>This project explores the application of Artificial Intelligence (AI) and how it can be applied in the field of art history by analyzing color palettes and stylistic features to predict the period, style, and geographical location of artworks.</p>
+                            <div class="actions">
+                                <a class="btn btn-primary" href="https://github.com/1006udm/Mortality-and-Reasons-" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+
+                <!-- Client Server -->
+                <li>
+                    <article class="project" aria-labelledby="p-client">
+                        <figure class="project-media">
+                            <img src="assets/images/projects/client-server-480.webp"
+                                 srcset="assets/images/projects/client-server-480.webp 480w, assets/images/projects/client-server-960.webp 960w"
+                                 sizes="(min-width: 60rem) 30rem, calc(100vw - 2rem)"
+                                 width="960" height="1151" loading="lazy" decoding="async"
+                                 alt="Illustration of a server tower with a globe">
+                        </figure>
+                        <div class="project-body">
+                            <p class="eyebrow">Software Engineering</p>
+                            <h3 id="p-client">Client–Server Database Interactions</h3>
+                            <p>The project involves designing a generic client-server architecture using Java and MySQL for user authentication, data storage, and email generation. This project was developed in collaboration with Justin Bouse, Tang Favish, and Micha Wisniewski.</p>
+                            <div class="actions">
+                                <a class="btn btn-primary" href="https://github.com/1006udm/Client-Server-Database-Interactions" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+
+                <!-- Data Analysis -->
+                <li>
+                    <article class="project" aria-labelledby="p-data">
+                        <figure class="project-media">
+                            <img src="assets/images/projects/cause-of-death-480.webp"
+                                 srcset="assets/images/projects/cause-of-death-480.webp 480w, assets/images/projects/cause-of-death-828.webp 828w"
+                                 sizes="(min-width: 60rem) 30rem, calc(100vw - 2rem)"
+                                 width="828" height="1097" loading="lazy" decoding="async"
+                                 alt="Grid of box plots comparing male and female mortality rates for ten leading causes of death">
+                        </figure>
+                        <div class="project-body">
+                            <p class="eyebrow">Data Analysis</p>
+                            <h3 id="p-data">Analyzing the Links Among Gender, Regional Factors and Cause of Death</h3>
+                            <p>This study utilized the R programming language to analyze the relationships among gender, regional residence (urban versus rural), and mortality rates attributed to the ten leading causes of death in the United States.</p>
+                            <div class="actions">
+                                <a class="btn btn-primary" href="https://github.com/1006udm/Mortality-and-Reasons-" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+        <!-- ============ ABOUT ============ -->
+        <section class="section wrap" id="about" aria-labelledby="about-title">
+            <h2 class="section-title reveal" id="about-title">#About</h2>
+            <div class="about">
+                <div class="about-text">
+                    <h3>Aspiring UX/UI Designer &amp; Graphic Designer</h3>
+                    <p>I'm a creative graphic designer with experience in both digital and print design, specializing in Adobe Creative Suite, web development, and brand identity. Currently studying at California Lutheran University, I excel in fast-paced environments, delivering high-quality work while collaborating effectively with teams and clients. My passion lies in creating visually impactful designs that tell a story and strengthen brand presence.</p>
                 </div>
+                <img class="about-img"
+                     src="assets/images/site/about-code-600.webp"
+                     srcset="assets/images/site/about-code-600.webp 600w, assets/images/site/about-code-1136.webp 1136w"
+                     sizes="(min-width: 60rem) 34rem, calc(100vw - 2rem)"
+                     width="1136" height="496" loading="lazy" decoding="async"
+                     alt="">
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
-    <!-- Guliyo Designs -->
-    <div class="additional-guliyo" id="guliyo-designs">
-        <h3>Guliyo Designs</h3>
-        <div class="carousel">
-            <div class="image-container"><img src="lassi_art.JPG" alt="Guliyo artwork - Lassi"></div>
-            <div class="image-container"><img src="lassi_mockup.JPG" alt="Lassi mockup"></div>
-            <div class="image-container"><img src="Jaad_art.JPG" alt="Jaad design"></div>
-            <div class="image-container"><img src="Jaad_mockup.JPG" alt="Jaad mockup"></div>
-            <div class="image-container"><img src="jhola_mockup.JPG" alt="Bag mockup"></div>
-            <div class="image-container"><img src="poster.jpeg" alt="Poster"></div>
-            <div class="image-container"><img src="poster_art.jpeg" alt="Poster art"></div>
-            <div class="image-container"><img src="poster2.JPG" alt="Poster 2"></div>
-        </div>
-    </div>
-
-    <!-- AI in Art History -->
-    <div class="workPortfolio">
-        <div class="container">
-            <div class="dataAnalysis">
-                <div class="workImg">
-                    <div class="codimg">
-                        <ul>
-                            <img src="art_ai.jpg" alt="AI in Art History" id="CODImg2">
-                        </ul>
-                    </div>
-                    <div class="dataText">
-                        <h3>Machine Learning</h3>
-                        <h4>AI in Art History</h4>
-                        <p>This project explores the application of Artificial Intelligence (AI) and how it can be applied in the field of art history by analyzing color palettes and stylistic features to predict the period, style, and geographical location of artworks.</p>
-                        <a href="https://github.com/1006udm/Mortality-and-Reasons-" target="_blank">
-                            <button class="githubbutton">Github</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Client Server -->
-    <div class="Menu">
-        <div class="container01">
-            <div class="workImg">
-                <img src="computer-156951_1920.png" alt="Client Server" id="dashianMenu2">
-                <div class="MenuText">
-                    <h3>Software Engineering</h3>
-                    <h4>Client Server Database Interactions</h4>
-                    <p>The project involves designing a generic client-server architecture using Java and MySQL for user authentication, data storage, and email generation. This project was developed in collaboration with Justin Bouse, Tang Favish, and Micha Wisniewski.</p>
-                    <a href="https://github.com/1006udm/Client-Server-Database-Interactions" target="_blank">
-                        <button class="githubbutton">View Website</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Data Analysis -->
-    <div class="workPortfolio">
-        <div class="container">
-            <div class="dataAnalysis">
-                <div class="workImg">
-                    <div class="codimg">
-                        <ul>
-                            <img src="CODmain.png" alt="Data Analysis" id="CODImg3">
-                        </ul>
-                    </div>
-                    <div class="dataText">
-                        <h3>Data Analysis</h3>
-                        <h4>Analyzing the Links Among Gender, Regional Factors and Cause of Death</h4>
-                        <p>This study utilized the R programming language to analyze the relationships among gender, regional residence (urban versus rural), and mortality rates attributed to the ten leading causes of death in the United States.</p>
-                        <a href="https://github.com/1006udm/Mortality-and-Reasons-" target="_blank">
-                            <button class="githubbutton">Github</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  
-
-    <footer id="contact-footer">
-        <nav>
-            <p class="contactme">//Contact<br>me</p>
-        </nav>
-        <div>
-            <ul>
-                <li><a href="mailto:unnatimaharjan06@gmail.com" class="email">email</a></li>
-                <li><a class="linkedin" href="https://www.linkedin.com/in/unnati-maharjan-b170282bb/" target="_blank">linkedin</a></li>
+    <!-- ============ CONTACT ============ -->
+    <footer class="site-footer" id="contact" aria-labelledby="contact-title">
+        <div class="wrap footer-inner">
+            <h2 class="contact-title" id="contact-title">//Contact <span>me</span></h2>
+            <ul class="contact-list" role="list">
+                <li>
+                    <span class="contact-label">Email</span>
+                    <a href="mailto:unnatimaharjan06@gmail.com">unnatimaharjan06@gmail.com</a>
+                </li>
+                <li>
+                    <span class="contact-label">LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/unnati-maharjan-b170282bb/" target="_blank" rel="noopener">in/unnati-maharjan <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a>
+                </li>
+                <li>
+                    <span class="contact-label">Resume</span>
+                    <a href="https://drive.google.com/file/d/12ilwB49QqJNDkbqbePYMZRTVrbVMQuqd/view?usp=sharing" target="_blank" rel="noopener">View PDF <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span></a>
+                </li>
             </ul>
         </div>
+        <p class="wrap footer-note">© <span data-year>2026</span> Unnati Maharjan</p>
     </footer>
-
-    <script>
-        // Slide-in animation
-        document.addEventListener("DOMContentLoaded", () => {
-            const h2Elements = document.querySelectorAll("h2.slide-in");
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            });
-            h2Elements.forEach(h2 => observer.observe(h2));
-
-            // Guliyo toggle
-            const guliyoButton = document.querySelector(".viewAll[data-target='guliyo-designs']");
-            const guliyoSection = document.getElementById("guliyo-designs");
-            if (guliyoButton && guliyoSection) {
-                guliyoButton.addEventListener("click", function () {
-                    if (guliyoSection.style.display === "none" || guliyoSection.style.display === "") {
-                        guliyoSection.style.display = "block";
-                        guliyoSection.scrollIntoView({ behavior: "smooth" });
-                        this.textContent = "Hide Designs";
-                    } else {
-                        guliyoSection.style.display = "none";
-                        this.textContent = "View All Designs";
-                    }
-                });
-            }
-        });
-
-        // Carousel drag
-        document.querySelectorAll('.carousel').forEach(carousel => {
-            let isDown = false, startX, scrollLeft;
-            carousel.addEventListener('mousedown', (e) => {
-                isDown = true;
-                startX = e.pageX - carousel.offsetLeft;
-                scrollLeft = carousel.scrollLeft;
-            });
-   
-
-            // Touch events
-            let startTouchX, startTouchScrollLeft;
-
-            carousel.addEventListener('touchstart', (e) => {
-                startTouchX = e.touches[0].pageX;
-                startTouchScrollLeft = carousel.scrollLeft;
-            }, { passive: true });
-
-            carousel.addEventListener('touchmove', (e) => {
-                const x = e.touches[0].pageX;
-                const walk = (x - startTouchX) * 1.5;
-                carousel.scrollLeft = startTouchScrollLeft - walk;
-            }, { passive: true });
-        });
-
-        // Form functions
-        function openForm(formId) {
-            document.getElementById(formId).style.display = "block";
-        }
-
-        function closeForm(formId) {
-            document.getElementById(formId).style.display = "none";
-        }
-
-        function toggleBlur(element) {
-            document.body.classList.toggle('blur-background');
-        }
-
-        function removeBlur() {
-            document.body.classList.remove('blur-background');
-        }
-    </script>
 </body>
 
 </html>
-
