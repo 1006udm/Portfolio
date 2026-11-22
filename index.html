@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unnati Maharjan Portfolio</title>
+<meta name="description" content="Portfolio of Unnati Maharjan, a UX/UI and graphic designer, presented as a retro platformer speedrun.">
+<meta name="theme-color" content="#1c2f21">
+<link rel="icon" href="assets/images/site/logo-sprite.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add('js');</script>
+<style>[hidden]{display:none!important} body{margin:0}</style>
+</head>
+<body>
+<a class="skip-link" href="#about">Skip the game, open the portfolio</a>
+
+<!-- ============ TOP BAR: portfolio menu + run stats ============ -->
+<header class="topbar" id="topbar">
+    <div class="topbar-inner">
+        <a class="brand" href="#play" aria-label="Unnati Maharjan, back to the run">
+            <img class="brand-logo" src="assets/images/site/logo.png" alt="" width="40" height="40">
+            <span class="brand-name">Unnati<br>Maharjan</span>
+        </a>
+        <nav class="menu-wrap" aria-label="Character information">
+            <button class="btn btn-sm menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="menu-pop">Menu <span aria-hidden="true">▾</span></button>
+            <div class="menu-pop frame" id="menu-pop" hidden>
+                <p class="label menu-pop-title">Character info</p>
+                <ul class="menu" role="list">
+                    <li><a class="menu-tab" id="tab-about" href="#about">Character<span class="menu-badge" aria-hidden="true">✓</span></a></li>
+                    <li><a class="menu-tab" id="tab-status" href="#status">Status<span class="menu-badge" aria-hidden="true">✓</span></a></li>
+                    <li><a class="menu-tab" id="tab-work" href="#work">Skills<span class="menu-badge" aria-hidden="true">✓</span></a></li>
+                    <li><a class="menu-tab" id="tab-equip" href="#equip">Equip<span class="menu-badge" aria-hidden="true">✓</span></a></li>
+                    <li><a class="menu-tab" id="tab-contact" href="#contact">Contact<span class="menu-badge" aria-hidden="true">✓</span></a></li>
+                </ul>
+                <p class="menu-pop-hint">Esc to close</p>
+            </div>
+        </nav>
+        <div class="run-stats" aria-label="Run stats">
+            <span class="run-stat"><span class="label">Time</span><b id="run-time">00:00.00</b></span>
+            <span class="run-stat"><span class="label">Level</span><b id="run-level">1</b></span>
+            <span class="run-stat"><span class="label">Coins</span><b id="run-coins">0</b></span>
+        </div>
+        <a class="btn btn-alt btn-sm topbar-resume" href="https://drive.google.com/file/d/12ilwB49QqJNDkbqbePYMZRTVrbVMQuqd/view?usp=sharing" target="_blank" rel="noopener">Resume ↗<span class="sr-only"> (opens in new tab)</span></a>
+    </div>
+</header>
+
+<!-- ============ THE LEVEL ============ -->
+<section class="stage" id="play" aria-labelledby="stage-title">
+    <canvas id="game" tabindex="0" aria-describedby="stage-help" aria-label="Platformer level"></canvas>
+
+    <div class="stage-card frame" id="start-card" role="dialog" aria-labelledby="stage-title">
+        <button class="card-close" type="button" data-card-close aria-label="Close and play">✕</button>
+        <p class="label card-kicker">World 1-1 · Portfolio run</p>
+        <h1 id="stage-title">Unnati Maharjan</h1>
+        <p class="card-sub">UX/UI &amp; graphic designer. Race to the flag. Every <span class="qblock" aria-hidden="true">!</span> block is a level-up that unlocks part of my portfolio. Open anything, anytime, from the Menu.</p>
+        <ul class="card-keys" id="stage-help">
+            <li><kbd>←</kbd><kbd>→</kbd> or <kbd>A</kbd><kbd>D</kbd> run</li>
+            <li><kbd>↑</kbd> jump</li>
+            <li><kbd>Space</kbd> high jump</li>
+            <li><kbd>M</kbd> menu · <kbd>Enter</kbd> open unlock</li>
+            <li class="touch-only">◀ ▶ run · A jump · B high jump</li>
+        </ul>
+        <div class="actions card-actions">
+            <button class="btn" type="button" id="start-run">▶ Start run</button>
+            <a class="btn btn-alt" href="#about">Skip to portfolio</a>
+        </div>
+    </div>
+
+    <div class="stage-card frame" id="clear-card" role="dialog" aria-labelledby="clear-time" hidden>
+        <button class="card-close" type="button" data-card-close aria-label="Close">✕</button>
+        <p class="label card-kicker">Congratulations! Course clear</p>
+        <h2 class="clear-time" id="clear-time">00:00.00</h2>
+        <p class="card-sub" id="clear-detail">Coins collected.</p>
+        <div class="actions card-actions">
+            <a class="btn" href="#about">▶ Open portfolio</a>
+            <button class="btn btn-alt" type="button" id="run-again">Run again</button>
+        </div>
+    </div>
+
+    <div class="levelup frame" id="levelup" role="status" aria-live="polite" hidden>
+        <p class="label levelup-level" id="levelup-level">Level up!</p>
+        <p class="levelup-text"><b id="levelup-name">CHARACTER</b> <span id="levelup-verb">unlocked</span></p>
+        <button class="btn btn-sm" type="button" id="levelup-open">View ▶</button>
+    </div>
+
+    <div class="touch-pad" id="touch-pad">
+        <button class="pad-btn" type="button" data-pad="left" aria-label="Run left">◀</button>
+        <button class="pad-btn" type="button" data-pad="right" aria-label="Run right">▶</button>
+        <button class="pad-btn pad-jump" type="button" data-pad="jump" aria-label="Jump">A</button>
+        <button class="pad-btn pad-jump pad-high" type="button" data-pad="high" aria-label="High jump">B</button>
+    </div>
+</section>
+
+<!-- ============ PORTFOLIO (opens over the level) ============ -->
+<div class="portal" id="portal" role="dialog" aria-modal="true" aria-labelledby="portal-title">
+    <div class="portal-bar">
+        <button class="btn btn-sm btn-alt" type="button" id="portal-close">◀ Back to the run</button>
+        <span class="label" id="portal-title">Portfolio · paused</span>
+    </div>
+<div class="shell">
+    <main id="screens">
+
+        <!-- ============ CHARACTER (#about) ============ -->
+        <section class="screen frame" id="about" role="region" aria-labelledby="tab-about">
+            <div class="screen-head">
+                <h2>Create character</h2>
+                <span class="label">Character 1 of 1</span>
+            </div>
+
+            <div class="char-grid">
+                <div class="stage frame">
+                    <img class="sprite pixel" src="assets/images/site/hero-sprite.png" width="528" height="528" alt="Pixel-art portrait of Unnati with a red bob haircut">
+                    <div class="floor" aria-hidden="true"></div>
+                    <div class="nameplate">
+                        <h1><span>Unnati</span> <span>Maharjan</span></h1>
+                        <span class="label">UX/UI + Graphic Designer</span>
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <dl class="stat-list">
+                        <div class="stat">
+                            <dt class="label">Name</dt>
+                            <dd>Unnati Maharjan</dd>
+                        </div>
+                        <div class="stat">
+                            <dt class="label">Class</dt>
+                            <dd>Aspiring UX/UI Designer &amp; Graphic Designer</dd>
+                        </div>
+                        <div class="stat">
+                            <dt class="label">Education</dt>
+                            <dd>B.S. Computer Science, Minor in Art · California Lutheran University, 2025</dd>
+                        </div>
+                        <div class="stat">
+                            <dt class="label">Achievement</dt>
+                            <dd>UCDA Design Award 2023, Print &amp; Digital and Environmental Graphics</dd>
+                        </div>
+                        <div class="stat">
+                            <dt class="label">Perks</dt>
+                            <dd>
+                                <ul class="perks">
+                                    <li class="perk">Adobe Creative Suite</li>
+                                    <li class="perk">Web development</li>
+                                    <li class="perk">Brand identity</li>
+                                    <li class="perk">Digital &amp; print design</li>
+                                </ul>
+                            </dd>
+                        </div>
+                        <div class="stat">
+                            <dt class="label">Skills</dt>
+                            <dd>
+                                <span class="pips" aria-label="7 skills unlocked">
+                                    <span class="pip" aria-hidden="true"></span>
+                                    <span class="pip" aria-hidden="true"></span>
+                                    <span class="pip" aria-hidden="true"></span>
+                                    <span class="pip" aria-hidden="true"></span>
+                                    <span class="pip" aria-hidden="true"></span>
+                                    <span class="pip" aria-hidden="true"></span>
+                                    <span class="pip" aria-hidden="true"></span>
+                                    <span class="pips-count" aria-hidden="true">7 unlocked</span>
+                                </span>
+                            </dd>
+                        </div>
+                    </dl>
+
+                    <div class="actions">
+                        <a class="btn" href="#work">▶ View skills</a>
+                        <a class="btn btn-alt" href="#contact">Team up</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story-grid">
+            <div class="dialogue frame">
+                <span class="speaker">Unnati</span>
+                <p>I create designs that embody brand essence through curated techniques with precision and creativity.</p>
+                <span class="more" aria-hidden="true"></span>
+            </div>
+
+            <div class="backstory frame">
+                <h3 class="label">Backstory</h3>
+                <p>I'm a creative graphic designer with experience in both digital and print design, specializing in Adobe Creative Suite, web development, and brand identity. Currently studying at California Lutheran University, I excel in fast-paced environments, delivering high-quality work while collaborating effectively with teams and clients. My passion lies in creating visually impactful designs that tell a story and strengthen brand presence.</p>
+            </div>
+            </div>
+        </section>
+
+        <!-- ============ STATUS (#status) ============ -->
+        <section class="screen frame" id="status" role="region" aria-labelledby="tab-status">
+            <div class="screen-head">
+                <h2>Status</h2>
+                <span class="label">Quest log · 5 roles since 2022</span>
+            </div>
+
+            <ol class="quests">
+                <li class="quest frame">
+                    <div class="quest-head">
+                        <div class="quest-title">
+                            <h3>Studio Assistant</h3>
+                            <p class="quest-org">Office Untitled, Culver City</p>
+                        </div>
+                        <div class="quest-meta"><span class="label">January 2026</span></div>
+                    </div>
+                    <ul class="objectives">
+                        <li>Recommended, procured, and implemented equipment and operational solutions to improve efficiency, streamline workflow, and team morale.</li>
+                        <li>Coordinated property management services for the studio, including maintenance, repairs, janitorial services, cleaning operations, tech support, and waste management to ensure smooth daily operations.</li>
+                        <li>Installed and configured electrical wiring and programming systems based on layout specifications and schedules, performed testing and troubleshooting, and supported the maintenance, repair, and tracking of studio equipment including speakers, monitors, computers, wiring, and 3D printers.</li>
+                        <li>Collaborated with technology teams to manage user access, including IP security, permissions, and VPN remote connectivity for internal users, external vendors, and clients based on organizational requirements.</li>
+                        <li>Organizes office events each quarter to strengthen team relationships.</li>
+                    </ul>
+                </li>
+                <li class="quest frame">
+                    <div class="quest-head">
+                        <div class="quest-title">
+                            <h3>Product Design Intern</h3>
+                            <p class="quest-org">Xire</p>
+                        </div>
+                        <div class="quest-meta"><span class="label">Sept 2025 – January 2026</span></div>
+                    </div>
+                    <ul class="objectives">
+                        <li>Supported cross-functional teams by developing and maintaining digital assets and system-ready content for web, email, and internal platforms, ensuring consistency and usability across digital environments.</li>
+                        <li>Assisted in organizing, structuring, and managing digital files and asset libraries to improve version control, accessibility, and operational efficiency.</li>
+                        <li>Collaborated with technical and project teams to ensure digital outputs aligned with system requirements, workflow standards, and project objectives, improving overall delivery efficiency.</li>
+                        <li>Contributed to process improvements in digital asset handling and workflow organization, supporting smoother collaboration across teams.</li>
+                    </ul>
+                </li>
+                <li class="quest frame">
+                    <div class="quest-head">
+                        <div class="quest-title">
+                            <h3>Visual Arts Department</h3>
+                            <p class="quest-org">California Lutheran University</p>
+                        </div>
+                        <div class="quest-meta"><span class="label">August 2023 – May 2024</span></div>
+                    </div>
+                    <ul class="objectives">
+                        <li>Supported faculty during class sessions by setting up materials, demonstrations, and digital resources.</li>
+                        <li>Provided IT/AV systems support in classroom and lab environments, troubleshooting hardware, software, and digital workflow issues while ensuring reliable system performance and user support.</li>
+                        <li>Provided guidance to students on project development, composition, and visual storytelling.</li>
+                        <li>Managed inventory control for office supplies and art materials, including tools and paint brushes, assessing condition regularly and initiating replacements or repairs to maintain operational readiness.</li>
+                    </ul>
+                </li>
+                <li class="quest frame">
+                    <div class="quest-head">
+                        <div class="quest-title">
+                            <h3>Gallery Assistant – Lead</h3>
+                            <p class="quest-org">William Rolland Art Gallery, California Lutheran University</p>
+                        </div>
+                        <div class="quest-meta"><span class="label">August 2022 – May 2023</span></div>
+                    </div>
+                    <ul class="objectives">
+                        <li>Enhanced artists’ creative vision by designing and implementing immersive lighting and audiovisual environments to support engaging and impactful experiences.</li>
+                        <li>Supported artist development and gallery operations by creating digital and promotional materials that enhanced community engagement, artist visibility, and alignment with the university’s mission.</li>
+                        <li>Managed artist correspondence and coordinated exhibition logistics, ensuring smooth operations and timely communication.</li>
+                        <li>Compiled, updated, and organized comprehensive data on artists and upcoming exhibitions to streamline gallery workflows.</li>
+                    </ul>
+                </li>
+                <li class="quest frame">
+                    <div class="quest-head">
+                        <div class="quest-title">
+                            <h3>Academic Services</h3>
+                            <p class="quest-org">California Lutheran University</p>
+                        </div>
+                        <div class="quest-meta"><span class="label">February 2022 – May 2025</span></div>
+                    </div>
+                    <ul class="objectives">
+                        <li>Provided responsive support to students, parents, and staff via phone, email, and in-person communication, ensuring compliance with office procedures and FERPA privacy regulations and handling confidential information with discretion.</li>
+                        <li>Streamlined administrative tasks to improve workflow and office efficiency.</li>
+                        <li>Maintained a comprehensive record of student, stakeholder, and employee information in the database by processing forms and through email correspondence.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <!-- ============ SKILLS (#work) ============ -->
+        <section class="screen frame" id="work" role="region" aria-labelledby="tab-work">
+            <div class="screen-head">
+                <h2>Skills</h2>
+                <span class="label">7 unlocked · choose one</span>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-list frame" role="tablist" aria-orientation="vertical" aria-label="Skills">
+                    <button class="skill-tab" role="tab" id="st-ux" aria-controls="sp-ux" aria-selected="true" type="button">
+                        <span class="cursor" aria-hidden="true"></span>
+                        <span class="skill-name">UX/UI Design</span>
+                        <span class="skill-project">Marginalia</span>
+                        <span class="skill-level" role="img" aria-label="Level 3 of 5"><span class="skill-pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span><span class="skill-num" aria-hidden="true">3/5</span></span>
+                    </button>
+                    <button class="skill-tab" role="tab" id="st-brand" aria-controls="sp-brand" aria-selected="false" tabindex="-1" type="button">
+                        <span class="cursor" aria-hidden="true"></span>
+                        <span class="skill-name">Brand Design</span>
+                        <span class="skill-project">Guliyo</span>
+                        <span class="skill-level" role="img" aria-label="Level 4.5 of 5"><span class="skill-pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="half"></i></span><span class="skill-num" aria-hidden="true">4.5/5</span></span>
+                    </button>
+                    <button class="skill-tab" role="tab" id="st-ml" aria-controls="sp-ml" aria-selected="false" tabindex="-1" type="button">
+                        <span class="cursor" aria-hidden="true"></span>
+                        <span class="skill-name">Machine Learning</span>
+                        <span class="skill-project">AI in Art History</span>
+                        <span class="skill-level" role="img" aria-label="Level 4 of 5"><span class="skill-pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="skill-num" aria-hidden="true">4/5</span></span>
+                    </button>
+                    <button class="skill-tab" role="tab" id="st-se" aria-controls="sp-se" aria-selected="false" tabindex="-1" type="button">
+                        <span class="cursor" aria-hidden="true"></span>
+                        <span class="skill-name">Software Engineering</span>
+                        <span class="skill-project">Client–Server Database</span>
+                        <span class="skill-level" role="img" aria-label="Level 4 of 5"><span class="skill-pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="skill-num" aria-hidden="true">4/5</span></span>
+                    </button>
+                    <button class="skill-tab" role="tab" id="st-data" aria-controls="sp-data" aria-selected="false" tabindex="-1" type="button">
+                        <span class="cursor" aria-hidden="true"></span>
+                        <span class="skill-name">Data Analysis</span>
+                        <span class="skill-project">Cause of Death Study</span>
+                        <span class="skill-level" role="img" aria-label="Level 4 of 5"><span class="skill-pips" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="skill-num" aria-hidden="true">4/5</span></span>
+                    </button>
+                    <button class="skill-tab" role="tab" id="st-write" aria-controls="sp-write" aria-selected="false" tabindex="-1" type="button">
+                        <span class="cursor" aria-hidden="true"></span>
+                        <span class="skill-name">Writing</span>
+                        <span class="skill-project">milieu on Substack</span>
+                    </button>
+                    <button class="skill-tab" role="tab" id="st-photo" aria-controls="sp-photo" aria-selected="false" tabindex="-1" type="button">
+                        <span class="cursor" aria-hidden="true"></span>
+                        <span class="skill-name">Photography</span>
+                        <span class="skill-project">West Coast map</span>
+                    </button>
+                </div>
+
+                <div class="skill-panels">
+                    <!-- Marginalia -->
+                    <article class="skill-panel frame" id="sp-ux" role="tabpanel" aria-labelledby="st-ux" tabindex="0">
+                        <figure class="skill-art">
+                            <img src="assets/images/projects/marginalia-480.webp" srcset="assets/images/projects/marginalia-480.webp 480w, assets/images/projects/marginalia-960.webp 960w" sizes="(min-width: 52em) 40rem, 100vw" width="960" height="960" alt="Marginalia logo: a pen nib inside a circle">
+                        </figure>
+                        <p class="label">Skill · UX/UI Design</p>
+                        <h3>Marginalia</h3>
+                        <p class="tagline">Writing from the margins</p>
+                        <p class="desc">Marginalia is a platform that helps readers turn their notes and highlights from books into organized, shareable insights. It combines the depth of personal note-taking with the reach of public publishing. Users can capture and summarize ideas, keep them private as part of their own learning archive, or share them as thoughtful reflections for others to explore.</p>
+                        <div class="actions">
+                            <a class="btn" href="https://www.figma.com/proto/avLz9qNunJqS8PnSqvje5c/Marginalia?node-id=1206-2234&amp;p=f&amp;t=6OsDQa8x9i7rXJf7-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;page-id=601%3A10&amp;starting-point-node-id=605%3A9" target="_blank" rel="noopener">▶ Play prototype<span class="sr-only"> (opens in new tab)</span></a>
+                            <a class="btn btn-alt" href="https://docs.google.com/presentation/d/1Wv_IXjaNi5HUCuaP-DXf0GwTasLGMU6Y36roBXb8kCk/edit?usp=sharing" target="_blank" rel="noopener">Case study ↗<span class="sr-only"> (opens in new tab)</span></a>
+                        </div>
+                    </article>
+
+                    <!-- Guliyo -->
+                    <article class="skill-panel frame" id="sp-brand" role="tabpanel" aria-labelledby="st-brand" tabindex="0">
+                        <figure class="skill-art fill">
+                            <img src="assets/images/projects/guliyo-480.webp" srcset="assets/images/projects/guliyo-480.webp 480w, assets/images/projects/guliyo-960.webp 960w" sizes="(min-width: 52em) 40rem, 100vw" width="960" height="960" loading="lazy" alt="Guliyo logo: a dark red tree with a golden moon on a crimson background">
+                        </figure>
+                        <p class="label">Skill · Brand Design</p>
+                        <h3>Guliyo</h3>
+                        <p class="tagline">Sweetness of Nepal</p>
+                        <p class="desc">This luxury sweet brand was inspired by my childhood admiration for beauty and tradition. Combining cultural illustration, bold typography, and vivid color, Guliyo reflects the opulence of South Asian heritage.</p>
+                        <div class="actions">
+                            <a class="btn" href="https://guliyo-landing-page.pages.dev/" target="_blank" rel="noopener">▶ Visit website<span class="sr-only"> (opens in new tab)</span></a>
+                        </div>
+
+                        <div class="inventory">
+                            <div class="inventory-head">
+                                <h4 class="label">Inventory</h4>
+                                <span class="label">8 items</span>
+                            </div>
+                            <ul class="slots">
+                                <li><button class="slot" type="button" data-full="assets/images/guliyo-gallery/lassi-art-800.webp"><img src="assets/images/guliyo-gallery/lassi-art-400.webp" width="267" height="400" loading="lazy" alt="Lassi label artwork"></button></li>
+                                <li><button class="slot" type="button" data-full="assets/images/guliyo-gallery/lassi-mockup-800.webp"><img src="assets/images/guliyo-gallery/lassi-mockup-400.webp" width="283" height="400" loading="lazy" alt="Lassi bottle mockup"></button></li>
+                                <li><button class="slot" type="button" data-full="assets/images/guliyo-gallery/jaad-art-800.webp"><img src="assets/images/guliyo-gallery/jaad-art-400.webp" width="400" height="400" loading="lazy" alt="Jaad label artwork"></button></li>
+                                <li><button class="slot" type="button" data-full="assets/images/guliyo-gallery/jaad-mockup-800.webp"><img src="assets/images/guliyo-gallery/jaad-mockup-400.webp" width="283" height="400" loading="lazy" alt="Jaad bottle mockup"></button></li>
+                                <li><button class="slot" type="button" data-full="assets/images/guliyo-gallery/jhola-mockup-800.webp"><img src="assets/images/guliyo-gallery/jhola-mockup-400.webp" width="400" height="400" loading="lazy" alt="Tote bag mockup"></button></li>
+                                <li><button class="slot" type="button" data-full="assets/images/guliyo-gallery/poster-800.webp"><img src="assets/images/guliyo-gallery/poster-400.webp" width="400" height="400" loading="lazy" alt="Promotional poster"></button></li>
+                                <li><button class="slot" type="button" data-full="assets/images/guliyo-gallery/poster-art-800.webp"><img src="assets/images/guliyo-gallery/poster-art-400.webp" width="768" height="400" loading="lazy" alt="Wide poster artwork"></button></li>
+                                <li><button class="slot" type="button" data-full="assets/images/guliyo-gallery/poster-2-800.webp"><img src="assets/images/guliyo-gallery/poster-2-400.webp" width="283" height="400" loading="lazy" alt="Second poster"></button></li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- AI in Art History -->
+                    <article class="skill-panel frame" id="sp-ml" role="tabpanel" aria-labelledby="st-ml" tabindex="0">
+                        <figure class="skill-art fill">
+                            <img src="assets/images/projects/ai-art-history-480.webp" srcset="assets/images/projects/ai-art-history-480.webp 480w, assets/images/projects/ai-art-history-960.webp 960w" sizes="(min-width: 52em) 40rem, 100vw" width="960" height="1440" loading="lazy" alt="Classical sculpture of a winged figure on a building facade against a blue sky">
+                        </figure>
+                        <p class="label">Skill · Machine Learning</p>
+                        <h3>AI in Art History</h3>
+                        <p class="desc">This project explores the application of Artificial Intelligence (AI) and how it can be applied in the field of art history by analyzing color palettes and stylistic features to predict the period, style, and geographical location of artworks.</p>
+                        <div class="actions">
+                            <a class="btn" href="https://github.com/1006udm/Mortality-and-Reasons-" target="_blank" rel="noopener">▶ View on GitHub<span class="sr-only"> (opens in new tab)</span></a>
+                        </div>
+                    </article>
+
+                    <!-- Client–Server -->
+                    <article class="skill-panel frame" id="sp-se" role="tabpanel" aria-labelledby="st-se" tabindex="0">
+                        <figure class="skill-art">
+                            <img src="assets/images/projects/client-server-480.webp" srcset="assets/images/projects/client-server-480.webp 480w, assets/images/projects/client-server-960.webp 960w" sizes="(min-width: 52em) 40rem, 100vw" width="960" height="1151" loading="lazy" alt="Illustration of a server tower with a globe">
+                        </figure>
+                        <p class="label">Skill · Software Engineering</p>
+                        <h3>Client–Server Database Interactions</h3>
+                        <p class="desc">The project involves designing a generic client-server architecture using Java and MySQL for user authentication, data storage, and email generation. This project was developed in collaboration with Justin Bouse, Tang Favish, and Micha Wisniewski.</p>
+                        <div class="actions">
+                            <a class="btn" href="https://github.com/1006udm/Client-Server-Database-Interactions" target="_blank" rel="noopener">▶ View on GitHub<span class="sr-only"> (opens in new tab)</span></a>
+                        </div>
+                    </article>
+
+                    <!-- Data Analysis -->
+                    <article class="skill-panel frame" id="sp-data" role="tabpanel" aria-labelledby="st-data" tabindex="0">
+                        <figure class="skill-art">
+                            <img src="assets/images/projects/cause-of-death-480.webp" srcset="assets/images/projects/cause-of-death-480.webp 480w, assets/images/projects/cause-of-death-828.webp 828w" sizes="(min-width: 52em) 40rem, 100vw" width="828" height="1097" loading="lazy" alt="Grid of box plots comparing male and female mortality rates for ten leading causes of death">
+                        </figure>
+                        <p class="label">Skill · Data Analysis</p>
+                        <h3>Analyzing the Links Among Gender, Regional Factors and Cause of Death</h3>
+                        <p class="desc">This study utilized the R programming language to analyze the relationships among gender, regional residence (urban versus rural), and mortality rates attributed to the ten leading causes of death in the United States.</p>
+                        <div class="actions">
+                            <a class="btn" href="https://github.com/1006udm/Mortality-and-Reasons-" target="_blank" rel="noopener">▶ View on GitHub<span class="sr-only"> (opens in new tab)</span></a>
+                        </div>
+                    </article>
+
+                    <!-- Substack -->
+                    <article class="skill-panel frame" id="sp-write" role="tabpanel" aria-labelledby="st-write" tabindex="0">
+                        <figure class="skill-art skill-art--text" aria-hidden="true">
+                            <span>milieu</span>
+                        </figure>
+                        <p class="label">Skill · Writing</p>
+                        <h3>milieu</h3>
+                        <p class="tagline">by PartyAtMarlenes</p>
+                        <p class="desc">My Substack publication, where I write and publish as Diya Maharjan.</p>
+                        <div class="actions">
+                            <a class="btn" href="https://partyatmarlenes.substack.com/" target="_blank" rel="noopener">▶ Read on Substack<span class="sr-only"> (opens in new tab)</span></a>
+                        </div>
+                        <div class="articles">
+                            <div class="inventory-head">
+                                <h4 class="label">Articles</h4>
+                                <span class="label">4 posts</span>
+                            </div>
+                            <ul class="article-list">
+                                <li class="article">
+                                    <div class="article-text">
+                                        <b>Hosting From The Hearth</b>
+                                        <span class="label">Oct 15, 2026</span>
+                                    </div>
+                                    <a class="btn btn-sm" href="https://partyatmarlenes.substack.com/p/hosting-from-the-hearth" target="_blank" rel="noopener">Read ▶<span class="sr-only"> Hosting From The Hearth (opens in new tab)</span></a>
+                                </li>
+                                <li class="article">
+                                    <div class="article-text">
+                                        <b>Tethering The Line Of Intimacy: Agnes Martin</b>
+                                        <span class="label">Nov 18, 2025</span>
+                                    </div>
+                                    <a class="btn btn-sm" href="https://partyatmarlenes.substack.com/p/tethering-the-line-of-intimacy" target="_blank" rel="noopener">Read ▶<span class="sr-only"> Tethering The Line Of Intimacy: Agnes Martin (opens in new tab)</span></a>
+                                </li>
+                                <li class="article">
+                                    <div class="article-text">
+                                        <b>“leaving empathy behind?”</b>
+                                        <span class="label">Oct 21, 2025</span>
+                                    </div>
+                                    <a class="btn btn-sm" href="https://partyatmarlenes.substack.com/p/leaving-empathy-behind" target="_blank" rel="noopener">Read ▶<span class="sr-only"> “leaving empathy behind?” (opens in new tab)</span></a>
+                                </li>
+                                <li class="article">
+                                    <div class="article-text">
+                                        <b>Context to fashion. Fashion to context.</b>
+                                        <span class="label">Oct 7, 2025</span>
+                                    </div>
+                                    <a class="btn btn-sm" href="https://partyatmarlenes.substack.com/p/context-to-fashion-fashion-to-context" target="_blank" rel="noopener">Read ▶<span class="sr-only"> Context to fashion. Fashion to context. (opens in new tab)</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Photography -->
+                    <article class="skill-panel frame" id="sp-photo" role="tabpanel" aria-labelledby="st-photo" tabindex="0">
+                        <p class="label">Skill · Photography</p>
+                        <h3>Photography</h3>
+                        <p class="tagline">From the California desert to the Washington coast</p>
+                        <p class="desc">Pick a pin on the map to see the photos from that place.</p>
+                        <div class="photo-explorer">
+                            <div class="photo-map">
+                                <img class="pixel" src="assets/images/photography/west-coast-map.png" width="360" height="600" alt="Pixel map of the West Coast showing Washington, Oregon and California">
+                                <span class="map-glow" data-glow="wa" style="left:13.9%;top:10.4%" aria-hidden="true"></span>
+                                <span class="map-glow" data-glow="oregon" style="left:34.3%;top:24.2%" aria-hidden="true"></span>
+                                <span class="map-glow" data-glow="bigbear" style="left:64.5%;top:84%" aria-hidden="true"></span>
+                                <span class="map-glow" data-glow="anza" style="left:68.5%;top:91.5%" aria-hidden="true"></span>
+                                <span class="map-glow" data-glow="slab" style="left:80.5%;top:90%" aria-hidden="true"></span>
+                                <span class="map-label" style="left:42.9%;top:13.7%" aria-hidden="true">WA</span>
+                                <span class="map-label" style="left:42.9%;top:32.8%" aria-hidden="true">OR</span>
+                                <span class="map-label" style="left:49.3%;top:69.9%" aria-hidden="true">CA</span>
+                                <button class="map-pin" type="button" data-place="wa" style="left:13.9%;top:10.4%" aria-pressed="false" aria-label="Washington Coast, 1 photo"><span aria-hidden="true">1</span></button>
+                                <button class="map-pin" type="button" data-place="oregon" style="left:34.3%;top:24.2%" aria-pressed="true" aria-label="Mount Hood, OR, 6 photos"><span aria-hidden="true">6</span></button>
+                                <button class="map-pin" type="button" data-place="bigbear" style="left:64.5%;top:84%" aria-pressed="false" aria-label="Big Bear Lake, CA, 1 photo"><span aria-hidden="true">1</span></button>
+                                <button class="map-pin" type="button" data-place="anza" style="left:68.5%;top:91.5%" aria-pressed="false" aria-label="Anza-Borrego Desert, CA, 2 photos"><span aria-hidden="true">2</span></button>
+                                <button class="map-pin" type="button" data-place="slab" style="left:80.5%;top:90%" aria-pressed="false" aria-label="Slab City &amp; Salvation Mountain, CA, 5 photos"><span aria-hidden="true">5</span></button>
+                            </div>
+                            <div class="place-list" aria-label="Photo locations">
+                                <button class="place-chip" type="button" data-place="wa" aria-pressed="false">Washington Coast <small>1</small></button>
+                                <button class="place-chip" type="button" data-place="oregon" aria-pressed="true">Mount Hood, OR <small>6</small></button>
+                                <button class="place-chip" type="button" data-place="bigbear" aria-pressed="false">Big Bear Lake, CA <small>1</small></button>
+                                <button class="place-chip" type="button" data-place="anza" aria-pressed="false">Anza-Borrego Desert, CA <small>2</small></button>
+                                <button class="place-chip" type="button" data-place="slab" aria-pressed="false">Slab City &amp; Salvation Mountain, CA <small>5</small></button>
+                            </div>
+                        </div>
+                        <section class="place" id="place-wa" data-place="wa" aria-labelledby="place-wa-title" data-start-hidden>
+                            <div class="inventory-head">
+                                <h4 class="label" id="place-wa-title">Washington Coast</h4>
+                                <span class="label">1 photo</span>
+                            </div>
+                            <p class="place-desc">The coast of Washington state.</p>
+                            <ul class="slots photo-grid">
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/wa-through-the-looking-glass-1400.webp" data-title="Through the Looking Glass"><img src="assets/images/photography/wa-through-the-looking-glass-480.webp" width="480" height="320" loading="lazy" decoding="async" alt="The ocean and surf framed by an opening in spruce and salal on the Washington coast"></button></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                            </ul>
+                            <p class="item-info" aria-live="polite"><span class="label">Item</span> <span class="item-name">Pick a photo to view it</span></p>
+                        </section>
+                        <section class="place" id="place-oregon" data-place="oregon" aria-labelledby="place-oregon-title">
+                            <div class="inventory-head">
+                                <h4 class="label" id="place-oregon-title">Mount Hood, OR</h4>
+                                <span class="label">6 photos</span>
+                            </div>
+                            <p class="place-desc">Mount Hood and the lush forests of Oregon.</p>
+                            <ul class="slots photo-grid">
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/oregon-pnw2-1400.webp" data-title="PNW 2"><img src="assets/images/photography/oregon-pnw2-480.webp" width="480" height="320" loading="lazy" decoding="async" alt="Snow-capped Mount Hood reflected in a still lake ringed by evergreens"></button></li>
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/oregon-pnw3-1400.webp" data-title="PNW 3"><img src="assets/images/photography/oregon-pnw3-480.webp" width="480" height="320" loading="lazy" decoding="async" alt="Snow on a forest trail beside a fallen log and moss-covered trees"></button></li>
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/oregon-doc000-1400.webp" data-title="Doc000"><img src="assets/images/photography/oregon-doc000-480.webp" width="480" height="320" loading="lazy" decoding="async" alt="Sunlight flaring through tall trees onto a picnic table in a snowy forest"></button></li>
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/oregon-who-loves-the-sun-13-1400.webp" data-title="Who Loves The Sun 13"><img src="assets/images/photography/oregon-who-loves-the-sun-13-480.webp" width="480" height="320" loading="lazy" decoding="async" alt="Sun flare through tall conifers over a picnic table on a snowy trail"></button></li>
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/oregon-who-loves-the-sun-9-1400.webp" data-title="Who Loves The Sun 9"><img src="assets/images/photography/oregon-who-loves-the-sun-9-480.webp" width="480" height="270" loading="lazy" decoding="async" alt="Backlit moss-covered branches and maple leaves in a dark forest"></button></li>
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/oregon-who-loves-the-sun-12-1400.webp" data-title="Who Loves The Sun 12"><img src="assets/images/photography/oregon-who-loves-the-sun-12-480.webp" width="480" height="320" loading="lazy" decoding="async" alt="Maple leaves over a clear creek reflecting the sky and canopy"></button></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                            </ul>
+                            <p class="item-info" aria-live="polite"><span class="label">Item</span> <span class="item-name">Pick a photo to view it</span></p>
+                        </section>
+                        <section class="place" id="place-bigbear" data-place="bigbear" aria-labelledby="place-bigbear-title" data-start-hidden>
+                            <div class="inventory-head">
+                                <h4 class="label" id="place-bigbear-title">Big Bear Lake, CA</h4>
+                                <span class="label">1 photo</span>
+                            </div>
+                            <p class="place-desc">Big Bear Lake in the San Bernardino Mountains.</p>
+                            <ul class="slots photo-grid">
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/big-bear-who-loves-the-sun-3-1400.webp" data-title="Who Loves The Sun 3"><img src="assets/images/photography/big-bear-who-loves-the-sun-3-480.webp" width="480" height="320" loading="lazy" decoding="async" alt="Sunlight sparkling on Big Bear Lake beneath forested hills"></button></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                            </ul>
+                            <p class="item-info" aria-live="polite"><span class="label">Item</span> <span class="item-name">Pick a photo to view it</span></p>
+                        </section>
+                        <section class="place" id="place-anza" data-place="anza" aria-labelledby="place-anza-title" data-start-hidden>
+                            <div class="inventory-head">
+                                <h4 class="label" id="place-anza-title">Anza-Borrego Desert, CA</h4>
+                                <span class="label">2 photos</span>
+                            </div>
+                            <p class="place-desc">The badlands of the Anza-Borrego desert.</p>
+                            <ul class="slots photo-grid">
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/anza-borrego-badlands-1400.webp" data-title="Anza Borrego 2"><img src="assets/images/photography/anza-borrego-badlands-480.webp" width="480" height="270" loading="lazy" decoding="async" alt="Black-and-white view of eroded badland ridges above desert scrub and agave"></button></li>
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/anza-who-loves-the-sun-1400.webp" data-title="Who Loves The Sun"><img src="assets/images/photography/anza-who-loves-the-sun-480.webp" width="480" height="320" loading="lazy" decoding="async" alt="A sunburst over cholla cactus on an open desert plain"></button></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                            </ul>
+                            <p class="item-info" aria-live="polite"><span class="label">Item</span> <span class="item-name">Pick a photo to view it</span></p>
+                        </section>
+                        <section class="place" id="place-slab" data-place="slab" aria-labelledby="place-slab-title" data-start-hidden>
+                            <div class="inventory-head">
+                                <h4 class="label" id="place-slab-title">Slab City &amp; Salvation Mountain, CA</h4>
+                                <span class="label">5 photos</span>
+                            </div>
+                            <p class="place-desc">Salvation Mountain and Slab City, where a trailer burned down.</p>
+                            <ul class="slots photo-grid">
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/slab-salvation-mountain-1400.webp" data-title="Salvation Mountain"><img src="assets/images/photography/slab-salvation-mountain-480.webp" width="480" height="320" loading="lazy" decoding="async" alt="A tall plume of black smoke rising over trailers and desert scrub"></button></li>
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/slab-portrait-2-2-1400.webp" data-title="Portrait 2-2"><img src="assets/images/photography/slab-portrait-2-2-480.webp" width="480" height="320" loading="lazy" decoding="async" alt="People standing by a burning trailer as black smoke drifts past an RV"></button></li>
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/slab-city-fire-1400.webp" data-title="Slab City Fire"><img src="assets/images/photography/slab-city-fire-480.webp" width="480" height="320" loading="lazy" decoding="async" alt="Firefighters hosing down a trailer fire, seen through bare branches"></button></li>
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/slab-city-jesus-1400.webp" data-title="Slab City Jesus"><img src="assets/images/photography/slab-city-jesus-480.webp" width="480" height="320" loading="lazy" decoding="async" alt="A rusted corrugated wall hung with a hand-painted sign, dolls and old shoes"></button></li>
+                                    <li><button class="slot photo-slot" type="button" data-full="assets/images/photography/slab-city-dog-1400.webp" data-title="Slab City Dog"><img src="assets/images/photography/slab-city-dog-480.webp" width="480" height="320" loading="lazy" decoding="async" alt="A dog trotting across open desert between creosote bushes"></button></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                                    <li class="slot-empty" aria-hidden="true"></li>
+                            </ul>
+                            <p class="item-info" aria-live="polite"><span class="label">Item</span> <span class="item-name">Pick a photo to view it</span></p>
+                        </section>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ EQUIP (#equip) ============ -->
+        <section class="screen frame" id="equip" role="region" aria-labelledby="tab-equip">
+            <div class="screen-head">
+                <h2>Equip</h2>
+                <span class="label">27 items equipped · from resume</span>
+            </div>
+
+            <div class="equip-grid">
+                <section class="gear frame" aria-labelledby="gear-design">
+                    <div class="gear-head">
+                        <svg class="gear-icon" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><rect x="11" y="1" width="3" height="3"/><rect x="9" y="3" width="3" height="3"/><rect x="7" y="5" width="3" height="3"/><rect x="5" y="7" width="3" height="3"/><rect x="3" y="9" width="3" height="3"/><rect x="2" y="12" width="2" height="2"/></svg>
+                        <h3 class="label" id="gear-design">Design</h3>
+                        <span class="slot-type">Main hand</span>
+                    </div>
+                    <ul class="items">
+                        <li class="item"><b>Product Design</b><span>Xire · Product Design Intern</span></li>
+                        <li class="item"><b>UX/UI Design</b><a href="#work" data-skill="st-ux">Used in Marginalia</a></li>
+                        <li class="item"><b>Brand Identity</b><a href="#work" data-skill="st-brand">Used in Guliyo</a></li>
+                        <li class="item"><b>Print &amp; Digital Design</b><span>UCDA Design Award 2023</span></li>
+                        <li class="item"><b>Environmental Graphics</b><span>UCDA Design Award 2023</span></li>
+                        <li class="item"><b>Lighting &amp; Audiovisual Design</b><span>William Rolland Art Gallery</span></li>
+                    </ul>
+                </section>
+                <section class="gear frame" aria-labelledby="gear-code">
+                    <div class="gear-head">
+                        <svg class="gear-icon" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><rect x="4" y="3" width="2" height="2"/><rect x="2" y="5" width="2" height="2"/><rect x="0" y="7" width="2" height="2"/><rect x="2" y="9" width="2" height="2"/><rect x="4" y="11" width="2" height="2"/><rect x="10" y="3" width="2" height="2"/><rect x="12" y="5" width="2" height="2"/><rect x="14" y="7" width="2" height="2"/><rect x="12" y="9" width="2" height="2"/><rect x="10" y="11" width="2" height="2"/><rect x="7" y="2" width="2" height="12"/></svg>
+                        <h3 class="label" id="gear-code">Code</h3>
+                        <span class="slot-type">Off hand</span>
+                    </div>
+                    <ul class="items">
+                        <li class="item"><b>Computer Science, B.S.</b><span>California Lutheran University</span></li>
+                        <li class="item"><b>Java</b><a href="#work" data-skill="st-se">Used in Client–Server</a></li>
+                        <li class="item"><b>MySQL</b><a href="#work" data-skill="st-se">Used in Client–Server</a></li>
+                        <li class="item"><b>R</b><a href="#work" data-skill="st-data">Used in Cause of Death study</a></li>
+                        <li class="item"><b>Web Development</b><span>From backstory</span></li>
+                    </ul>
+                </section>
+                <section class="gear frame" aria-labelledby="gear-data">
+                    <div class="gear-head">
+                        <svg class="gear-icon" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><rect x="1" y="9" width="3" height="6"/><rect x="5" y="5" width="3" height="10"/><rect x="9" y="7" width="3" height="8"/><rect x="13" y="2" width="2" height="13"/></svg>
+                        <h3 class="label" id="gear-data">Data</h3>
+                        <span class="slot-type">Accessory</span>
+                    </div>
+                    <ul class="items">
+                        <li class="item"><b>Data Analysis</b><a href="#work" data-skill="st-data">Used in Cause of Death study</a></li>
+                        <li class="item"><b>Machine Learning</b><a href="#work" data-skill="st-ml">Used in AI in Art History</a></li>
+                        <li class="item"><b>Database &amp; Records Management</b><span>Academic Services, Cal Lutheran</span></li>
+                        <li class="item"><b>Digital Asset Management</b><span>Xire</span></li>
+                    </ul>
+                </section>
+                <section class="gear frame" aria-labelledby="gear-tech">
+                    <div class="gear-head">
+                        <svg class="gear-icon" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><rect x="8" y="0" width="3" height="2"/><rect x="6" y="2" width="3" height="3"/><rect x="4" y="5" width="3" height="3"/><rect x="4" y="7" width="8" height="2"/><rect x="9" y="9" width="3" height="3"/><rect x="7" y="12" width="3" height="2"/><rect x="5" y="14" width="3" height="2"/></svg>
+                        <h3 class="label" id="gear-tech">Tech &amp; IT</h3>
+                        <span class="slot-type">Armor</span>
+                    </div>
+                    <ul class="items">
+                        <li class="item"><b>IT/AV Systems Support</b><span>Visual Arts Dept., Cal Lutheran</span></li>
+                        <li class="item"><b>Network Access, Permissions &amp; VPN</b><span>Office Untitled</span></li>
+                        <li class="item"><b>Electrical Wiring &amp; System Setup</b><span>Office Untitled</span></li>
+                        <li class="item"><b>Studio Equipment &amp; 3D Printers</b><span>Office Untitled</span></li>
+                    </ul>
+                </section>
+                <section class="gear frame" aria-labelledby="gear-tools">
+                    <div class="gear-head">
+                        <svg class="gear-icon" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><rect x="5" y="2" width="6" height="2"/><rect x="5" y="2" width="2" height="4"/><rect x="9" y="2" width="2" height="4"/><rect x="1" y="6" width="14" height="8"/></svg>
+                        <h3 class="label" id="gear-tools">Tools</h3>
+                        <span class="slot-type">Pack</span>
+                    </div>
+                    <ul class="items">
+                        <li class="item"><b>Adobe Creative Suite</b><span>From backstory</span></li>
+                        <li class="item"><b>Figma</b><a href="#work" data-skill="st-ux">Used in Marginalia</a></li>
+                    </ul>
+                </section>
+                <section class="gear frame" aria-labelledby="gear-ops">
+                    <div class="gear-head">
+                        <svg class="gear-icon" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><rect x="2" y="3" width="12" height="11"/><rect x="4" y="1" width="2" height="4"/><rect x="10" y="1" width="2" height="4"/></svg>
+                        <h3 class="label" id="gear-ops">Operations &amp; People</h3>
+                        <span class="slot-type">Charm</span>
+                    </div>
+                    <ul class="items">
+                        <li class="item"><b>Exhibition Logistics</b><span>William Rolland Art Gallery</span></li>
+                        <li class="item"><b>Event Organizing</b><span>Office Untitled</span></li>
+                        <li class="item"><b>Studio &amp; Facilities Operations</b><span>Office Untitled</span></li>
+                        <li class="item"><b>Inventory Control</b><span>Visual Arts Dept., Cal Lutheran</span></li>
+                        <li class="item"><b>FERPA-Compliant Student Support</b><span>Academic Services, Cal Lutheran</span></li>
+                        <li class="item"><b>Mentoring in Visual Storytelling</b><span>Visual Arts Dept., Cal Lutheran</span></li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT (#contact) ============ -->
+        <section class="screen frame" id="contact" role="region" aria-labelledby="tab-contact">
+            <div class="screen-head">
+                <h2>Join my party</h2>
+                <span class="label">Multiplayer</span>
+            </div>
+
+            <p class="contact-intro">Looking for a designer for your next quest? Send a message.</p>
+
+            <ul class="options">
+                <li class="option frame">
+                    <span class="label">Email</span>
+                    <span class="option-value" id="email-text">diyamaharjan06@gmail.com</span>
+                    <button class="btn btn-sm" type="button" id="copy-email">Copy</button>
+                </li>
+                <li class="option frame">
+                    <span class="label">LinkedIn</span>
+                    <span class="option-value"><a href="https://www.linkedin.com/in/unnati-maharjan-b170282bb/" target="_blank" rel="noopener">in/unnati-maharjan ↗<span class="sr-only"> (opens in new tab)</span></a></span>
+                </li>
+                <li class="option frame">
+                    <span class="label">Resume</span>
+                    <span class="option-value"><a href="https://drive.google.com/file/d/12ilwB49QqJNDkbqbePYMZRTVrbVMQuqd/view?usp=sharing" target="_blank" rel="noopener">View PDF ↗<span class="sr-only"> (opens in new tab)</span></a></span>
+                </li>
+            </ul>
+            <p class="toast" id="toast" role="status" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <footer class="controls">
+        <p>© <span data-year>2026</span> Unnati Maharjan</p>
+        <p>Game art: <a href="https://kenney.nl" target="_blank" rel="noopener">Pixel Platformer by Kenney</a> (CC0)</p>
+    </footer>
+</div>
+</div>
+
+<!-- Inventory item viewer -->
+<dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
+    <div class="viewer-inner">
+        <div class="viewer-bar">
+            <h2 class="label" id="viewer-title">Item</h2>
+            <button class="btn btn-sm btn-alt" type="button" id="viewer-close">Close ✕</button>
+        </div>
+        <div class="viewer-stage">
+            <button class="viewer-arrow" type="button" id="viewer-prev" aria-label="Previous design">◀</button>
+            <img id="viewer-img" src="" alt="">
+            <button class="viewer-arrow" type="button" id="viewer-next" aria-label="Next design">▶</button>
+        </div>
+        <p class="label viewer-count" id="viewer-count" aria-live="polite">1 / 8</p>
+    </div>
+</dialog>
+
+<script src="js/script.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
